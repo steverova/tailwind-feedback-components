@@ -1,6 +1,7 @@
 import './App.css'
 import { useAlertDialog } from './components/AlertDialog/useAlertDialog'
 import { useNotification } from './components/Notification/useNotification'
+import { types } from './components/helper'
 
 function App() {
 	const { alertDialogHandler } = useAlertDialog()
@@ -13,7 +14,7 @@ function App() {
 			type: 'success'
 		})
 
-		if (!result) return 
+		if (!result) return
 
 		await notificationHandler({
 			title: 'Notification',
@@ -23,17 +24,22 @@ function App() {
 		})
 	}
 
-	const handleNotification = async () => {
+	const handleNotification = async (type) => {
 		await notificationHandler({
-			title: 'Notification',
+			title: `${type} notification`,
 			message: 'This is a notification',
-			type: 'error',
+			type: type,
 			autoHide: 6000
 		})
 	}
 
+	const array = Object.entries(types).map(([key, value]) => ({
+		key,
+		...value
+	}))
+
 	return (
-		<div className=' flex flex-row gap-3 items-center justify-center'>
+		<div className=' flex flex-col gap-3 items-center justify-center'>
 			<button
 				className='bg-blue-200 px-4 py-2 rounded-lg hover:bg-blue-400 font-semibold'
 				type='button'
@@ -41,12 +47,21 @@ function App() {
 				Open Dialog
 			</button>
 
-			<button
-				className='bg-green-200 px-4 py-2 rounded-lg hover:bg-green-400 font-semibold'
-				type='button'
-				onClick={handleNotification}>
-				Open Notification
-			</button>
+			<div>
+				<p>NOTIFICATIONS</p>
+
+				<div className='flex flex-row flex-wrap gap-2'>
+					{array.map((type) => (
+						<button
+							key={type.label}
+							className={`${type.color} px-4 py-2 rounded-lg ${type.hoverColor} font-semibold`}
+							type='button'
+							onClick={() => handleNotification(type.label.toLowerCase())}>
+							{type.label}
+						</button>
+					))}
+				</div>
+			</div>
 		</div>
 	)
 }

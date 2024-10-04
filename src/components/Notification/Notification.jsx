@@ -1,21 +1,14 @@
-import { useSpring, animated } from '@react-spring/web'
+import { animated, useSpring } from '@react-spring/web'
+import { nanoid } from 'nanoid'
 import { useEffect, useState } from 'react'
 import { types } from '../helper'
 
+
 const Notification = ({
-	position = 'bottom-right',
 	options,
 	isOpen = false
 }) => {
 	const { title, message, type, variant, timer } = options
-
-	const positionClasses = {
-		'top-left': 'top-4 left-4',
-		'top-right': 'top-4 right-4',
-		'bottom-left': 'bottom-4 left-4',
-		'bottom-right': 'bottom-4 right-4'
-	}
-
 	const [remainingDots, setRemainingDots] = useState(timer)
 
 	useEffect(() => {
@@ -36,7 +29,7 @@ const Notification = ({
 
 	return (
 		<animated.div
-			className={`fixed ${positionClasses[position]}`}
+		
 			style={springProps}>
 			<div
 				style={{
@@ -53,8 +46,8 @@ const Notification = ({
 					<div className='flex space-x-1 p-1 absolute top-1 right-1'>
 						{Array.from({ length: remainingDots }).map((dot) => (
 							<div
-								key={dot}
-								className={`h-2 w-2 rounded-full ${types[type].hoverColor}`}
+								key={nanoid()}
+								className={`h-2 w-2 rounded-full ${types[type].accentColor}`}
 							/>
 						))}
 					</div>

@@ -1,10 +1,11 @@
 import { createContext, useState, useContext, useCallback } from 'react'
-import Notification from './Notification'
+import { nanoid } from 'nanoid'
+import NotificationStack from './NotificationStack'
 
-const placeholder = {
+const defaultValues = {
 	title: 'Lorem Ipsum',
 	message:
-		'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s',
+		'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
 	type: 'info',
 	variant: 'regular',
 	autoHide: 3000
@@ -14,39 +15,68 @@ const NotificationContext = createContext()
 
 export const NotificationProvider = ({
 	children,
+	setup = {
+		maxNotifications: 3,
+		position: 'bottom-right'
+	}
 }) => {
-	const [options, setOptions] = useState(placeholder)
-
-	const [notificationState, setNotificationState] = useState({
-		isOpen: false,
-		resolve: null
-	})
+	const [notifications, setNotifications] = useState([])
+	const { position, maxNotifications } = setup
 
 	const notificationHandler = useCallback(
 		({
-			title = placeholder.title,
-			message = placeholder.message,
-			type = placeholder.type,
-			variant = placeholder.variant,
-			autoHide = placeholder.autoHide
-		} = placeholder) => {
-			setOptions({ title, message, type, variant, timer: autoHide / 1000 })
-			setNotificationState({ isOpen: true })
+			title = defaultValues.title,
+			message = defaultValues.message,
+			type = defaultValues.type,
+			variant = defaultValues.variant,
+			autoHide = defaultValues.autoHide
+		}) => {
+			const id = nanoid()
 
-			setTimeout(() => {
-				setNotificationState({ isOpen: false })
-			}, autoHide)
+			const newNotification = {
+				id,
+				title,
+				message,
+				type,
+				variant,
+				timer: autoHide / 1000,
+				isOpen: true
+			}
+
+			setNotifications((prevNotifications) => {
+				const filteredNotifications = prevNotifications.filter(
+					(notification) => notification.id !== id
+				)
+
+				const updatedNotifications = [
+					...filteredNotifications.slice(
+						Math.max(filteredNotifications.length - (maxNotifications - 1), 0)
+					),
+					newNotification
+				]
+
+				setTimeout(() => {
+					setNotifications((prev) =>
+						prev.map((notification) =>
+							notification.id === id
+								? { ...notification, isOpen: false }
+								: notification
+						)
+					)
+				}, autoHide)
+
+				return updatedNotifications
+			})
 		},
 		[]
 	)
 
 	return (
 		<NotificationContext.Provider value={{ notificationHandler }}>
-			<Notification
-				isOpen={notificationState.isOpen}
-				options={options}
+			<NotificationStack
+				notifications={notifications}
+				position={position}
 			/>
-
 			{children}
 		</NotificationContext.Provider>
 	)
@@ -56,7 +86,7 @@ export const useNotification = () => {
 	const context = useContext(NotificationContext)
 	if (!context) {
 		throw new Error(
-			'useAlertDialog must be used within an NotificationProvider'
+			'useNotification must be used within an NotificationProvider'
 		)
 	}
 	return context
