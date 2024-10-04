@@ -17,11 +17,12 @@ export const NotificationProvider = ({
 	children,
 	setup = {
 		maxNotifications: 3,
-		position: 'bottom-right'
+		position: 'bottom-right',
+		animation: 'fadeScale'
 	}
 }) => {
 	const [notifications, setNotifications] = useState([])
-	const { position, maxNotifications } = setup
+	const { position, maxNotifications, animation } = setup
 
 	const notificationHandler = useCallback(
 		({
@@ -57,23 +58,20 @@ export const NotificationProvider = ({
 
 				setTimeout(() => {
 					setNotifications((prev) =>
-						prev.map((notification) =>
-							notification.id === id
-								? { ...notification, isOpen: false }
-								: notification
-						)
+						prev.filter((notification) => notification.id !== id)
 					)
 				}, autoHide)
 
 				return updatedNotifications
 			})
 		},
-		[]
+		[maxNotifications]
 	)
 
 	return (
 		<NotificationContext.Provider value={{ notificationHandler }}>
 			<NotificationStack
+				animation={animation}
 				notifications={notifications}
 				position={position}
 			/>
@@ -86,7 +84,7 @@ export const useNotification = () => {
 	const context = useContext(NotificationContext)
 	if (!context) {
 		throw new Error(
-			'useNotification must be used within an NotificationProvider'
+			'useNotification must be used within a NotificationProvider'
 		)
 	}
 	return context

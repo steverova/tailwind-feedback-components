@@ -7,7 +7,12 @@ import { NotificationProvider } from './components/Notification/useNotification'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
-		<NotificationProvider>
+		<NotificationProvider
+			setup={{
+				maxNotifications: 10,
+				position: 'top-right',
+				animation: 'fadeScale'
+			}}>
 			<AlertDialogProvider>
 				<App />
 			</AlertDialogProvider>
