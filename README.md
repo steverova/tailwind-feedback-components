@@ -100,9 +100,12 @@ function App() {
 
 export default App
 
+```
+
 2. Usa el hook useNotification para disparar notificaciones desde cualquier lugar en tu aplicación:
 
 ```jsx
+
 import { useNotification } from './NotificationProvider'
 
 function MyComponent() {
@@ -125,4 +128,6 @@ function MyComponent() {
     </button>
   )
 }
+
+```
 
