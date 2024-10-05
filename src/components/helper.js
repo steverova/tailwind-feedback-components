@@ -10,7 +10,7 @@ export const placeholder = {
 	title: 'Lorem Ipsum',
 	message:
 		'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s',
-	type: 'error'
+	type: 'danger'
 }
 
 export const positionClasses = {
@@ -81,8 +81,8 @@ export const types = {
 		),
 		progress: 'from-yellow-400 via-yellow-500 to-yellow-600'
 	},
-	error: {
-		label: 'Error',
+	danger: {
+		label: 'Danger',
 		color: 'bg-red-100',
 		accentColor: 'bg-red-500',
 		border: 'border-red-500',
