@@ -2,12 +2,16 @@ import { useTransition, animated } from '@react-spring/web'
 import { notificationAnimations, positionClasses } from '../helper'
 import Notification from './Notification'
 
-const NotificationStack = ({ notifications, position, animation }) => {
-	
-  const transitions = useTransition(notifications, {
-    key: notification => notification.id,
-    ...notificationAnimations[animation],
-  });
+const NotificationStack = ({
+	closeNotification,
+	notifications,
+	position,
+	animation
+}) => {
+	const transitions = useTransition(notifications, {
+		key: (notification) => notification.id,
+		...notificationAnimations[animation]
+	})
 
 	return (
 		<div
@@ -18,6 +22,7 @@ const NotificationStack = ({ notifications, position, animation }) => {
 					style={style}
 					key={notification.id}>
 					<Notification
+						closeNotification={closeNotification}
 						isOpen={notification.isOpen}
 						options={notification}
 					/>

@@ -27,7 +27,14 @@ export const types = {
 		accentColor: 'bg-blue-500',
 		hoverColor: 'hover:bg-blue-500',
 		border: 'border-blue-500',
-		icon: <InfoIcon className='text-blue-700' />
+		text: 'text-blue-700',
+		icon: (
+			<InfoIcon
+				size={18}
+				className='text-blue-700'
+			/>
+		),
+		progress: 'from-blue-400 via-blue-500 to-blue-600'
 	},
 	ok: {
 		label: 'Ok',
@@ -35,31 +42,59 @@ export const types = {
 		accentColor: 'bg-blue-500',
 		hoverColor: 'hover:bg-blue-500',
 		border: 'border-blue-500',
-		icon: <CircleCheckIcon className='text-blue-700' />
+		text: 'text-blue-700',
+		icon: (
+			<CircleCheckIcon
+				size={18}
+				className='text-blue-700'
+			/>
+		),
+		progress: 'from-blue-400 via-blue-500 to-blue-600'
 	},
 	success: {
 		label: 'Success',
 		color: 'bg-emerald-100',
 		accentColor: 'bg-emerald-500',
 		border: 'border-emerald-500',
+		text: 'text-emerald-700',
 		hoverColor: 'hover:bg-emerald-500',
-		icon: <CircleCheckBigIcon className='text-emerald-700' />
+		icon: (
+			<CircleCheckBigIcon
+				size={18}
+				className='text-emerald-700'
+			/>
+		),
+		progress: 'from-emerald-400 via-emerald-500 to-emerald-600'
 	},
 	warning: {
 		label: 'Warning',
 		color: 'bg-yellow-100',
 		accentColor: 'bg-yellow-500',
 		border: 'border-yellow-500',
+		text: 'text-yellow-700',
 		hoverColor: 'hover:bg-yellow-500',
-		icon: <ShieldAlertIcon className='text-yellow-700' />
+		icon: (
+			<ShieldAlertIcon
+				size={18}
+				className='text-yellow-700'
+			/>
+		),
+		progress: 'from-yellow-400 via-yellow-500 to-yellow-600'
 	},
 	error: {
 		label: 'Error',
 		color: 'bg-red-100',
 		accentColor: 'bg-red-500',
 		border: 'border-red-500',
+		text: 'text-red-700',
 		hoverColor: 'hover:bg-red-500',
-		icon: <OctagonAlertIcon className='text-red-700' />
+		icon: (
+			<OctagonAlertIcon
+				size={18}
+				className='text-red-700'
+			/>
+		),
+		progress: 'from-red-400 via-red-500 to-red-600'
 	}
 }
 

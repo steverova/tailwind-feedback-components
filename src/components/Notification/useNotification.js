@@ -8,7 +8,8 @@ const defaultValues = {
 		'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
 	type: 'info',
 	variant: 'regular',
-	autoHide: 3000
+	autoHide: 3000,
+	persistent: false
 }
 
 const NotificationContext = createContext()
@@ -30,6 +31,7 @@ export const NotificationProvider = ({
 			message = defaultValues.message,
 			type = defaultValues.type,
 			variant = defaultValues.variant,
+			persistent = false,
 			autoHide = defaultValues.autoHide
 		}) => {
 			const id = nanoid()
@@ -40,7 +42,8 @@ export const NotificationProvider = ({
 				message,
 				type,
 				variant,
-				timer: autoHide / 1000,
+				persistent,
+				timer: persistent ? null : autoHide / 1000,
 				isOpen: true
 			}
 
@@ -56,21 +59,32 @@ export const NotificationProvider = ({
 					newNotification
 				]
 
-				setTimeout(() => {
-					setNotifications((prev) =>
-						prev.filter((notification) => notification.id !== id)
-					)
-				}, autoHide)
+				if (!persistent) {
+					setTimeout(() => {
+						setNotifications((prev) =>
+							prev.filter((notification) => notification.id !== id)
+						)
+					}, autoHide)
+				}
 
 				return updatedNotifications
 			})
+
+			return id
 		},
 		[maxNotifications]
 	)
 
+	const closeNotification = (id) => {
+		setNotifications((prev) =>
+			prev.filter((notification) => notification.id !== id)
+		)
+	}
+
 	return (
 		<NotificationContext.Provider value={{ notificationHandler }}>
 			<NotificationStack
+				closeNotification={closeNotification}
 				animation={animation}
 				notifications={notifications}
 				position={position}

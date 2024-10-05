@@ -1,9 +1,18 @@
 import { nanoid } from 'nanoid'
+import { useSpring, animated } from '@react-spring/web'
 import { useEffect, useState } from 'react'
 import { types } from '../helper'
+import { XIcon } from 'lucide-react'
 
-const Notification = ({ options, isOpen = false }) => {
-	const { title, message, type, variant, timer } = options
+const Notification = ({ closeNotification, options, isOpen = false }) => {
+	const animationProps = useSpring({
+		from: { transform: 'translateX(-100%)' },
+		to: { transform: 'translateX(100%)' },
+		loop: true, // Animación en bucle
+		config: { duration: 1500 } // Duración de la animación
+	})
+	const { title, message, type, variant, timer, persistent, id } = options
+	console.log(options)
 	const [remainingDots, setRemainingDots] = useState(timer)
 
 	useEffect(() => {
@@ -21,16 +30,29 @@ const Notification = ({ options, isOpen = false }) => {
 			style={{
 				zIndex: 9999,
 				boxShadow:
-					'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px',
-				borderRadius: '0.75rem'
+					'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px'
 			}}
-			className={`max-w-xs rounded-xl ${variant === 'filled' && types[type].color} ${variant === 'outlined' && types[type].border} border`}
+			className={`bg-white max-w-xs rounded-lg ${variant === 'filled' && types[type].color} ${variant === 'outlined' && types[type].border} overflow-hidden`}
 			role='alert'
 			tabIndex='-1'
 			aria-labelledby='hs-toast-normal-example-label'>
-			<div className='flex p-4'>
-				<div className='flex space-x-1 p-1 absolute top-1 right-1'>
-					{Array.from({ length: remainingDots }).map((dot) => (
+			<div className='flex px-4 '>
+				<div className='flex space-x-1 p-1 absolute top-0 right-0'>
+					{persistent && (
+						<button
+							onClick={() => closeNotification(id)}
+							type='button'
+							className='bg-slate-100 hover:bg-slate-300 p-1 rounded-full shadow-lg'>
+							<XIcon
+								className={`${types[type].text}`}
+								size={12}
+							/>
+						</button>
+					)}
+				</div>
+
+				<div className='flex space-x-1 p-1 absolute top-0 right-0'>
+					{Array.from({ length: remainingDots }).map((_) => (
 						<div
 							key={nanoid()}
 							className={`h-2 w-2 rounded-full ${types[type].accentColor}`}
@@ -38,22 +60,32 @@ const Notification = ({ options, isOpen = false }) => {
 					))}
 				</div>
 
-				<div className='shrink-0'>
-					<div
-						className={`h-8 w-8 flex items-center justify-center rounded-full ${types[type].color}`}>
-						{types[type].icon}
+				<div className='flex my-3 items-center'>
+					<div className='shrink-0'>
+						<div
+							className={`h-6 w-6 flex items-center justify-center rounded-full ${types[type].color}`}>
+							{types[type].icon}
+						</div>
+					</div>
+
+					<div className='ms-3'>
+						{title && <h3 className='text-left'>{title}</h3>}
+						<p
+							id='hs-toast-normal-example-label'
+							className='text-sm text-gray-700 dark:text-neutral-400 text-left'>
+							{message}
+						</p>
 					</div>
 				</div>
-
-				<div className='ms-3'>
-					{title && <h3 className='text-left'>{title}</h3>}
-					<p
-						id='hs-toast-normal-example-label'
-						className='text-sm text-gray-700 dark:text-neutral-400 text-left'>
-						{message}
-					</p>
-				</div>
 			</div>
+			{persistent && (
+				<div className='relative w-full h-1 bg-gray-300 overflow-hidden bottom-0 mt-1'>
+					<animated.div
+						style={animationProps}
+						className={`absolute h-full w-full bg-gradient-to-r from-blue-400 ${types[type].progress}`}
+					/>
+				</div>
+			)}
 		</div>
 	)
 }

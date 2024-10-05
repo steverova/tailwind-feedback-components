@@ -25,12 +25,15 @@ function App() {
 	}
 
 	const handleNotification = async (type) => {
-		await notificationHandler({
+		const notificationId = await notificationHandler({
 			title: `${type} notification`,
 			message: 'This is a notification',
 			type: type,
-			autoHide: 6000
+			persistent: true
+			
 		})
+
+		console.log(notificationId)
 	}
 
 	const array = Object.entries(types).map(([key, value]) => ({

@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 		<NotificationProvider
 			setup={{
 				maxNotifications: 10,
-				position: 'top-right',
+				position: 'bottom-right',
 				animation: 'fadeScale'
 			}}>
 			<AlertDialogProvider>
