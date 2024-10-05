@@ -12,8 +12,9 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 		config: { duration: 1500 } // Duración de la animación
 	})
 	const { title, message, type, variant, timer, persistent, id } = options
-	console.log(options)
 	const [remainingDots, setRemainingDots] = useState(timer)
+
+	console.log(options)
 
 	useEffect(() => {
 		if (isOpen) {
@@ -32,17 +33,19 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 				boxShadow:
 					'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px'
 			}}
-			className={`bg-white max-w-xs rounded-lg ${variant === 'filled' && types[type].color} ${variant === 'outlined' && types[type].border} overflow-hidden`}
+			className={`max-w-xs rounded-lg overflow-hidden 
+				${variant === 'filled' ? types[type].accentColor : variant === 'outlined' ? `border-2 bg-white z-100 ${types[type].border}`  : 'bg-white'}
+			`}
 			role='alert'
 			tabIndex='-1'
 			aria-labelledby='hs-toast-normal-example-label'>
 			<div className='flex px-4 '>
-				<div className='flex space-x-1 p-1 absolute top-0 right-0'>
+				<div className='flex space-x-1  absolute top-1 right-1'>
 					{persistent && (
 						<button
 							onClick={() => closeNotification(id)}
 							type='button'
-							className='bg-slate-100 hover:bg-slate-300 p-1 rounded-full shadow-lg'>
+							className='bg-slate-100 hover:bg-slate-300 p-1 rounded-tr-lg rounded-bl-lg shadow-lg'>
 							<XIcon
 								className={`${types[type].text}`}
 								size={12}
@@ -68,11 +71,20 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 						</div>
 					</div>
 
-					<div className='ms-3'>
-						{title && <h3 className='text-left'>{title}</h3>}
+					<div className='ms-3 mt-2'>
+						{title && (
+							<h3
+								className={`text-left ${variant === 'filled' ? 'text-white' : ''}`}>
+								{title}
+							</h3>
+						)}
 						<p
 							id='hs-toast-normal-example-label'
-							className='text-sm text-gray-700 dark:text-neutral-400 text-left'>
+							className={`text-sm text-left ${
+								variant === 'filled'
+									? 'text-white'
+									: 'text-gray-700 dark:text-neutral-400'
+							}`}>
 							{message}
 						</p>
 					</div>

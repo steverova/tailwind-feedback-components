@@ -29,6 +29,7 @@ function App() {
 			title: `${type} notification`,
 			message: 'This is a notification',
 			type: type,
+			variant: 'filled',
 			persistent: true
 			
 		})
