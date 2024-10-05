@@ -34,7 +34,7 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 					'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px'
 			}}
 			className={`max-w-xs rounded-lg overflow-hidden 
-				${variant === 'filled' ? types[type].accentColor : variant === 'outlined' ? `border-2 bg-white z-100 ${types[type].border}`  : 'bg-white'}
+				${variant === 'filled' ? types[type].accentColor : variant === 'outlined' ? `border-2 bg-white z-100 ${types[type].border}` : 'bg-white'}
 			`}
 			role='alert'
 			tabIndex='-1'
@@ -58,7 +58,7 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 					{Array.from({ length: remainingDots }).map((_) => (
 						<div
 							key={nanoid()}
-							className={`h-2 w-2 rounded-full ${types[type].accentColor}`}
+							className={`h-2 w-2 rounded-full ${variant === 'filled' ? 'bg-white' : types[type].accentColor}`}
 						/>
 					))}
 				</div>

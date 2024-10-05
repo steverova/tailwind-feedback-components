@@ -30,7 +30,8 @@ function App() {
 			message: 'This is a notification',
 			type: type,
 			variant: 'filled',
-			persistent: true
+			autoHide: 9000
+			
 			
 		})
 
