@@ -99,3 +99,30 @@ function App() {
 }
 
 export default App
+
+2. Usa el hook useNotification para disparar notificaciones desde cualquier lugar en tu aplicación:
+
+```jsx
+import { useNotification } from './NotificationProvider'
+
+function MyComponent() {
+  const { notificationHandler } = useNotification()
+
+  const triggerNotification = () => {
+    notificationHandler({
+      title: 'Nueva notificación',
+      message: 'Este es el mensaje de la notificación',
+      type: 'success',
+      variant: 'filled',
+      persistent: false,
+      autoHide: 5000
+    })
+  }
+
+  return (
+    <button onClick={triggerNotification}>
+      Mostrar Notificación
+    </button>
+  )
+}
+
