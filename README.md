@@ -9,34 +9,22 @@ Este conjunto de componentes permite manejar y mostrar un stack de notificacione
 | `nanoid`            | Generación de IDs únicos para cada notificación                   |
 | `@react-spring/web` | Manejo de animaciones para las notificaciones y el stack          |
 | `lucide-react`      | Conjunto de íconos SVG utilizados en el diseño de la notificación |
+| `tailwind`          | Proveddor de estilos 
 
 ## Props que puedes editar
 
-### Componente `Notification`
 
-| Prop      | Tipo      | Descripción                                                                          | Default |
-| --------- | --------- | ------------------------------------------------------------------------------------ | ------- |
-| `options` | `object`  | Opciones personalizables para la notificación. Ver detalles en la siguiente sección. | `{}`    |
-| `isOpen`  | `boolean` | Determina si la notificación está visible.                                           | `false` |
 
-#### Opciones de configuración (`options`)
+#### Opciones de configuración (dentro de `notificationHandler`)
 
 | Prop         | Tipo      | Descripción                                                                                                    | Default     |
 | ------------ | --------- | -------------------------------------------------------------------------------------------------------------- | ----------- |
-| `title`      | `string`  | Título de la notificación.                                                                                     | `''`        |
-| `message`    | `string`  | Mensaje de la notificación.                                                                                    | `''`        |
-| `type`       | `string`  | Tipo de notificación (`success`, `info`, `warning`, `error`). Esto ajusta el color e ícono de la notificación. | `'info'`    |
+| `type`       | `string`  | Tipo de notificación (`success`, `info`, `warning`, `danger`, `ok`). Esto ajusta el color e ícono de la notificación. | `'info'`    |
 | `variant`    | `string`  | Estilo de la notificación (`filled`, `outlined`, `regular`).                                                   | `'regular'` |
-| `timer`      | `number`  | Duración de la notificación (en segundos) si no es persistente.                                                | `3`         |
-| `persistent` | `boolean` | Si es `true`, la notificación debe cerrarse manualmente, si es `false` se cierra automáticamente.              | `false`     |
+| `behavior`   | `string`  | Comportamiento de la notificación (`autoHide`, `persistent`).                                                | `'autoHide'` |
+| `timeOut`    | `number`  | Duración de la notificación (en milisegundos) si no es persistente.                                          | `3000`      |
 
-### Componente `NotificationStack`
 
-| Prop            | Tipo     | Descripción                                                                                    | Default          |
-| --------------- | -------- | ---------------------------------------------------------------------------------------------- | ---------------- |
-| `notifications` | `array`  | Lista de notificaciones que se mostrarán en el stack.                                          | `[]`             |
-| `position`      | `string` | Posición del stack en la pantalla (`top-left`, `top-right`, `bottom-left`, `bottom-right`).    | `'bottom-right'` |
-| `animation`     | `string` | Animación que se aplica a las notificaciones (`fadeScale`, `slideHorizontal`, `bounce`, etc.). | `'fadeScale'`    |
 
 ### Proveedor `NotificationProvider`
 
@@ -50,7 +38,7 @@ Este conjunto de componentes permite manejar y mostrar un stack de notificacione
 | ------------------ | -------- | ------------------------------------------------------------------------------------------- | ---------------- |
 | `maxNotifications` | `number` | Número máximo de notificaciones visibles en pantalla a la vez.                              | `3`              |
 | `position`         | `string` | Posición del stack en la pantalla (`top-left`, `top-right`, `bottom-left`, `bottom-right`). | `'bottom-right'` |
-| `animation`        | `string` | Tipo de animación para las notificaciones (`fadeScale`, `slide`, `fade`, etc.).             | `'fadeScale'`    |
+| `animation`        | `string` | Tipo de animación para las notificaciones (`fadeScale`, `slideHorizontal`, `bounce`,`colorFade`,`slideUp`,`rotateFade`).             | `'fadeScale'`    |
 
 ## Animaciones disponibles
 
@@ -73,45 +61,13 @@ import { NotificationProvider } from './NotificationProvider'
 function App() {
   return (
     <NotificationProvider setup={{
-				maxNotifications: 10,
-				position: 'bottom-right',
-				animation: 'fadeScale'
-			}}>>
+      maxNotifications: 10,
+      position: 'bottom-right',
+      animation: 'fadeScale'
+    }}>
       <YourAppComponents />
     </NotificationProvider>
   )
 }
 
 export default App
-
-```
-
-2. Usa el hook useNotification para disparar notificaciones desde cualquier lugar en tu aplicación:
-
-```jsx
-
-import { useNotification } from './NotificationProvider'
-
-function MyComponent() {
-  const { notificationHandler } = useNotification()
-
-  const triggerNotification = () => {
-    notificationHandler({
-      title: 'Nueva notificación',
-      message: 'Este es el mensaje de la notificación',
-      type: 'success',
-      variant: 'filled',
-      persistent: false,
-      autoHide: 5000
-    })
-  }
-
-  return (
-    <button onClick={triggerNotification}>
-      Mostrar Notificación
-    </button>
-  )
-}
-
-```
-

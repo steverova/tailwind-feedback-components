@@ -20,6 +20,8 @@ export const positionClasses = {
 	'bottom-right': 'bottom-4 right-4'
 }
 
+const SIZE = 25
+
 export const types = {
 	info: {
 		label: 'Info',
@@ -30,7 +32,7 @@ export const types = {
 		text: 'text-blue-700',
 		icon: (
 			<InfoIcon
-				size={18}
+				size={SIZE}
 				className='text-blue-700'
 			/>
 		),
@@ -45,7 +47,7 @@ export const types = {
 		text: 'text-blue-700',
 		icon: (
 			<CircleCheckIcon
-				size={18}
+				size={SIZE}
 				className='text-blue-700'
 			/>
 		),
@@ -60,7 +62,7 @@ export const types = {
 		hoverColor: 'hover:bg-emerald-500',
 		icon: (
 			<CircleCheckBigIcon
-				size={18}
+				size={SIZE}
 				className='text-emerald-700'
 			/>
 		),
@@ -75,7 +77,7 @@ export const types = {
 		hoverColor: 'hover:bg-yellow-500',
 		icon: (
 			<ShieldAlertIcon
-				size={18}
+				size={SIZE}
 				className='text-yellow-700'
 			/>
 		),
@@ -90,7 +92,7 @@ export const types = {
 		hoverColor: 'hover:bg-red-500',
 		icon: (
 			<OctagonAlertIcon
-				size={18}
+				size={SIZE}
 				className='text-red-700'
 			/>
 		),

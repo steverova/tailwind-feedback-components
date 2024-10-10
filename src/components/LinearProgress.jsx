@@ -5,8 +5,8 @@ const LinearProgress = () => {
 	const animationProps = useSpring({
 		from: { transform: 'translateX(-100%)' },
 		to: { transform: 'translateX(100%)' },
-		loop: true, // Animación en bucle
-		config: { duration: 1500 } // Duración de la animación
+		loop: true, 
+		config: { duration: 1500 }
 	})
 
 	return (

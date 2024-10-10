@@ -4,11 +4,11 @@ import Notification from './Notification'
 
 const NotificationStack = ({
 	closeNotification,
-	notifications,
+	notificationOptions,
 	position,
 	animation
 }) => {
-	const transitions = useTransition(notifications, {
+	const transitions = useTransition(notificationOptions, {
 		key: (notification) => notification.id,
 		...notificationAnimations[animation]
 	})

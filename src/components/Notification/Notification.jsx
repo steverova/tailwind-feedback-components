@@ -8,13 +8,13 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 	const animationProps = useSpring({
 		from: { transform: 'translateX(-100%)' },
 		to: { transform: 'translateX(100%)' },
-		loop: true, // Animación en bucle
-		config: { duration: 1500 } // Duración de la animación
+		loop: true,
+		config: { duration: 1500 }
 	})
-	const { title, message, type, variant, timer, persistent, id } = options
-	const [remainingDots, setRemainingDots] = useState(timer)
 
-	console.log(options)
+	console.log('options ->', options)
+	const { type, variant, timer, persistent, id, newProps } = options
+	const [remainingDots, setRemainingDots] = useState(timer)
 
 	useEffect(() => {
 		if (isOpen) {
@@ -31,7 +31,7 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 			style={{
 				zIndex: 9999,
 				boxShadow:
-					'rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px'
+					'rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px'
 			}}
 			className={`max-w-xs rounded-lg overflow-hidden 
 				${variant === 'filled' ? types[type].accentColor : variant === 'outlined' ? `border-2 bg-white z-100 ${types[type].border}` : 'bg-white'}
@@ -45,7 +45,7 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 						<button
 							onClick={() => closeNotification(id)}
 							type='button'
-							className='bg-slate-100 hover:bg-slate-300 p-1 rounded-tr-lg rounded-bl-lg shadow-lg'>
+							className='bg-slate-100 hover:bg-slate-300 p-1 rounded-full border-2 shadow-lg'>
 							<XIcon
 								className={`${types[type].text}`}
 								size={12}
@@ -54,39 +54,32 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 					)}
 				</div>
 
-				<div className='flex space-x-1 p-1 absolute top-0 right-0'>
-					{Array.from({ length: remainingDots }).map((_) => (
-						<div
-							key={nanoid()}
-							className={`h-2 w-2 rounded-full ${variant === 'filled' ? 'bg-white' : types[type].accentColor}`}
-						/>
-					))}
-				</div>
+				{!persistent && (
+					<div className='flex space-x-1 p-1 absolute top-0 right-0'>
+						{Array.from({ length: remainingDots }).map((_) => (
+							<div
+								key={nanoid()}
+								className={`h-2 w-2 rounded-full ${variant === 'filled' ? 'bg-white' : types[type].accentColor}`}
+							/>
+						))}
+					</div>
+				)}
 
-				<div className='flex my-3 items-center'>
-					<div className='shrink-0'>
-						<div
-							className={`h-6 w-6 flex items-center justify-center rounded-full ${types[type].color}`}>
-							{types[type].icon}
-						</div>
+				<div className='flex flex-row my-3 items-center gap-3 me-6 min-w-52'>
+					<div
+						className={`h-10 w-10 flex items-center justify-center rounded-full ${types[type].color}`}>
+						{types[type].icon}
 					</div>
 
-					<div className='ms-3 mt-2'>
-						{title && (
-							<h3
-								className={`text-left ${variant === 'filled' ? 'text-white' : ''}`}>
-								{title}
-							</h3>
-						)}
-						<p
-							id='hs-toast-normal-example-label'
-							className={`text-sm text-left ${
+					<div>
+						<h3
+							className={`text-left font-semibold w-full items-center ${
 								variant === 'filled'
 									? 'text-white'
-									: 'text-gray-700 dark:text-neutral-400'
+									: 'text-gray-700 dark:text-neutral-800'
 							}`}>
-							{message}
-						</p>
+							{newProps}
+						</h3>
 					</div>
 				</div>
 			</div>

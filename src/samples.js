@@ -1,4 +1,5 @@
-import { createContext, useState, useContext, useCallback } from 'react'
+const samples = {
+	notification: `import { createContext, useState, useContext, useCallback } from 'react'
 import { nanoid } from 'nanoid'
 import NotificationStack from './NotificationStack'
 
@@ -93,26 +94,26 @@ export const NotificationProvider = ({
 }
 
 const validateProps = ({ behavior, variant, type }) => {
-	if (!['autoHide', 'persistent'].includes(behavior)) {
-		throw new Error(
-			`Invalid behavior value: ${behavior}. Expected: 'autoHide' || 'persistent'.`
-		)
-	}
+    if (!['autoHide', 'persistent'].includes(behavior)) {
+        throw new Error(
+            'Invalid behavior value: ' + behavior + '. Expected: \'autoHide\' or \'persistent\'.'
+        );
+    }
 
-	if (!['regular', 'filled', 'outline'].includes(variant)) {
-		throw new Error(
-			`Invalid variant value: ${variant}. Expected: 'regular' || 'filled' || 'outline'.`
-		)
-	}
+    if (!['regular', 'filled', 'outline'].includes(variant)) {
+        throw new Error(
+            'Invalid variant value: ' + variant + '. Expected: \'regular\', \'filled\', or \'outline\'.'
+        );
+    }
 
-	if (!['success', 'info', 'warning', 'danger', 'ok'].includes(type)) {
-		throw new Error(
-			`Invalid type value: ${type}. Expected: 'success' || 'info' || 'warning' || 'danger' || 'ok'.`
-		)
-	}
-
-	return true
-}
+    if (!['success', 'info', 'warning', 'danger', 'ok'].includes(type)) {
+        throw new Error(
+            'Invalid type value: ' + type + '. Expected: \'success\', \'info\', \'warning\', \'danger\', or \'ok\'.'
+        );
+    }
+        
+    return true;
+};
 
 export const useNotification = () => {
 	const context = useContext(NotificationContext)
@@ -123,3 +124,7 @@ export const useNotification = () => {
 	}
 	return context
 }
+`
+}
+
+export default samples
