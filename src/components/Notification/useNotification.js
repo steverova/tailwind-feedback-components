@@ -99,9 +99,9 @@ const validateProps = ({ behavior, variant, type }) => {
 		)
 	}
 
-	if (!['regular', 'filled', 'outline'].includes(variant)) {
+	if (!['regular', 'filled', 'outlined'].includes(variant)) {
 		throw new Error(
-			`Invalid variant value: ${variant}. Expected: 'regular' || 'filled' || 'outline'.`
+			`Invalid variant value: ${variant}. Expected: 'regular' || 'filled' || 'outlined'.`
 		)
 	}
 

@@ -19,11 +19,10 @@ function App() {
 
 		if (!result) return
 
-		await notificationHandler('nuevo props', {
-			title: 'Notification',
-			message: 'This is a notification',
-			type: 'regular',
-			autoHide: 6000
+		 await notificationHandler("success notification", {
+			type: 'success',
+			variant: 'outlined',
+			behavior: 'persistent'
 		})
 	}
 
