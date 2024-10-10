@@ -27,9 +27,9 @@ function App() {
 	}
 
 	const handleNotification = async (type) => {
-		const notificationId = await notificationHandler('hey hello', {
+		const notificationId = await notificationHandler(`${type} notification`, {
 			type: type,
-			variant: 'regular',
+			variant: 'filled',
 			behavior: 'autoHide'
 		})
 
