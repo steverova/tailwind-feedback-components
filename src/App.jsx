@@ -4,6 +4,7 @@ import { useAlertDialog } from './components/AlertDialog/useAlertDialog'
 import { useNotification } from './components/Notification/useNotification'
 import { types } from './components/helper'
 import samples from './samples'
+import { GithubIcon } from 'lucide-react'
 
 function App() {
 	const { alertDialogHandler } = useAlertDialog()
@@ -46,7 +47,7 @@ function App() {
 	}))
 
 	return (
-		<>
+		<div className='h-screen bg-slate-400 relative'>
 			<div className=' flex flex-col gap-3 items-center justify-center'>
 				<button
 					className='bg-blue-200 px-4 py-2 rounded-lg hover:bg-blue-400 font-semibold'
@@ -85,7 +86,21 @@ function App() {
 				wrapLines={true}
 				codeBlock
 			/> */}
-		</>
+
+			<div className='absolute bottom-10 left-10'>
+				<button
+					type='button'
+					onClick={() =>
+						window.open(
+							'https://github.com/steverova/tailwind-feedback-components',
+							'_blank'
+						)
+					}
+					className='bg-slate-200 hover:bg-slate-300 p-2 rounded-full'>
+					<GithubIcon size={32} />
+				</button>
+			</div>
+		</div>
 	)
 }
 
