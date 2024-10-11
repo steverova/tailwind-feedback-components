@@ -2,6 +2,7 @@ import FlatRadioButton from '../components/FlatRadioButton.jsx'
 import { types, positionClasses } from '../components/helper'
 import { useNotification } from '../components/Notification/useNotification'
 import notifySvg from '../assets/svg/notify.svg'
+import PopoverButton from '../components/PopverButton.jsx'
 
 const objectToArray = (values) => {
 	return Object.entries(values).map(([key, value]) => {
@@ -32,8 +33,9 @@ const NotificationPage = () => {
 	const array = objectToArray(types)
 
 	return (
-		<div className='flex min-h-screen bg-green-100'>
-			<nav className='w-32 fixed  mt-12 '>
+		<div className=' flex min-h-screen bg-green-100'>
+
+			<nav className='hidden lg:block w-32 fixed  mt-12 '>
 				<h2 className='text-md font-bold text-right text-gray-600  px-3 border-r-2 border-gray-300'>
 					Navigation
 				</h2>
@@ -51,7 +53,25 @@ const NotificationPage = () => {
 			</nav>
 
 			{/* Contenido principal */}
-			<div className='flex-1 ml-32 overflow-y-auto p-6'>
+			<div className='flex-1 sm:ml-32 overflow-y-auto p-6'>
+				<div className='sm:block md:hidden'>
+					<div className='fixed top-15 right-10 z-10  '>
+						<PopoverButton title='Navigation'>
+							<ul className='p-0'>
+								{['install', 'usage', 'props', 'methods'].map((item) => (
+									<li key={item}>
+										<a
+											href={`#${item}`}
+											className='border-r-2 border-gray-300 block text-right leading-6 text-sm font-medium px-3 hover:text-emerald-600 text-gray-600 hover:border-r-2 hover:border-emerald-600  '>
+											{item}
+										</a>
+									</li>
+								))}
+							</ul>
+						</PopoverButton>
+					</div>
+				</div>
+
 				<div className='py-16 text-center items-center'>
 					{/* Título Hero */}
 					<div className='flex justify-center items-baseline text-line'>
