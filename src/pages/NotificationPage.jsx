@@ -47,7 +47,7 @@ const NotificationPage = () => {
 					Click on any button to trigger different notifications
 				</p>
 
-				<div className='flex flex-row gap-3 justify-center my-6 '>
+				<div className='flex flex-row flex-wrap gap-3 justify-center my-6 '>
 					{Object.entries(positionClasses).map(([key, value]) => (
 						<FlatRadioButton
 							key={value}
@@ -58,7 +58,7 @@ const NotificationPage = () => {
 					))}
 				</div>
 
-				<div className='flex flex-row gap-3 justify-center my-6 '>
+				<div className='flex flex-row flex-wrap gap-3 justify-center my-6 '>
 					{['filled', 'outlined', 'regular'].map((variant) => (
 						<FlatRadioButton
 							key={variant}
