@@ -1,5 +1,33 @@
-import { XIcon } from 'lucide-react'
+import { XIcon, LayoutDashboardIcon, PuzzleIcon } from 'lucide-react'
 import NavItem from './NavItem'
+
+const sidebarItems = [
+	{
+		label: 'Dashboard',
+		icon: <LayoutDashboardIcon />,
+		route: '/'
+	},
+	{
+		label: 'Alert Dialog',
+		icon: <PuzzleIcon />,
+		route: '/alert-dialog'
+	},
+	{
+		label: 'Notification',
+		icon: <PuzzleIcon />,
+		route: '/notification'
+	},
+	{
+		label: 'Modal',
+		icon: <PuzzleIcon />,
+		route: '/modal'
+	},
+	{
+		label: 'Wrapper Context',
+		icon: <PuzzleIcon />,
+		route: '/wrapper-context'
+	}
+]
 
 const Sidebar = ({ isOpen, setShowSidebar }) => (
 	<div
@@ -22,18 +50,14 @@ const Sidebar = ({ isOpen, setShowSidebar }) => (
 
 			<div className='flex flex-col flex-1 overflow-y-auto'>
 				<nav className='flex-1 px-2 py-4'>
-					<NavItem
-						title='Dashboard'
-						iconPath='M4 6h16M4 12h16M4 18h16'
-					/>
-					<NavItem
-						title='Messages'
-						iconPath='M6 18L18 6M6 6l12 12'
-					/>
-					<NavItem
-						title='Settings'
-						iconPath='M13 10V3L4 14h7v7l9-11h-7z'
-					/>
+					{sidebarItems.map((item) => (
+						<NavItem
+							key={item.label}
+							title={item.label}
+							icon={item.icon}
+							route={item.route}
+						/>
+					))}
 				</nav>
 			</div>
 		</div>

@@ -2,12 +2,7 @@ import { MenuIcon, XIcon } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Sidebar from './components/SideBar'
-
-
-
-
-
-
+import { Outlet } from 'react-router-dom'
 
 function MainLayout({ children }) {
 	const [showSidebar, setShowSidebar] = useState(false)
@@ -68,7 +63,11 @@ function MainLayout({ children }) {
 				<Header toggleSidebar={toggleSidebar} />
 
 				{/* Main content area */}
-				<div className='h-screen overflow-y-auto'>{children}</div>
+				<div className='h-screen overflow-y-auto'>
+					{children}
+
+					<Outlet />
+				</div>
 			</div>
 		</div>
 	)
