@@ -29,60 +29,83 @@ const NotificationPage = () => {
 	}
 
 	const positions = objectToArray(positionClasses)
-
-	console.log(positions)
-
 	const array = objectToArray(types)
 
 	return (
-		<div className='flex items-start justify-center min-h-full bg-green-100'>
-			<div className='py-16 text-center'>
-				{/* Título Hero */}
-				<h1 className='text-5xl font-bold text-gray-800 mb-4'>
-					Stay Notified!
-				</h1>
-
-				{/* Subtítulo */}
-				<p className='text-xl text-gray-600 mb-8'>
-					Click on any button to trigger different notifications
-				</p>
-
-				<div className='flex flex-row flex-wrap gap-3 justify-center my-6 '>
-					{Object.entries(positionClasses).map(([key, value]) => (
-						<FlatRadioButton
-							key={value}
-							name={value}
-							label={key}
-							variant='regular'
-						/>
+		<div className='flex min-h-screen bg-green-100'>
+			<nav className='w-52 fixed  mt-12 '>
+				<h2 className='text-md font-bold text-right text-gray-600  px-3 border-r-2 border-gray-300'>
+					Navigation
+				</h2>
+				<ul className='p-0'>
+					{['install', 'usage', 'props', 'methods'].map((item) => (
+						<li key={item}>
+							<a
+								href='#step1'
+								className='border-r-2 border-gray-300 block text-right leading-8 text-sm font-medium px-3 hover:text-emerald-600 text-gray-600 hover:border-r-2 hover:border-emerald-600  '>
+								{item}
+							</a>
+						</li>
 					))}
-				</div>
+				</ul>
+			</nav>
 
-				<div className='flex flex-row flex-wrap gap-3 justify-center my-6 '>
-					{['filled', 'outlined', 'regular'].map((variant) => (
-						<FlatRadioButton
-							key={variant}
-							name={variant}
-							label={variant}
-							variant={variant}
-						/>
-					))}
-				</div>
+			{/* display: block;
+    line-height: 32px;
+    font-size: 14px;
+    font-weight: 400; */}
 
-				{/* Botones de notificaciones */}
-				<div className='flex flex-row flex-wrap gap-4 justify-center'>
-					{array.map((type) => (
-						<button
-							key={type.label}
-							className={`px-6 py-3 rounded-lg ${type.color} ${type.hoverColor} font-semibold shadow-lg transform transition hover:scale-105`}
-							type='button'
-							onClick={() => handleNotification(type.label.toLowerCase())}>
-							{type.label}
-						</button>
-					))}
+			{/* Contenido principal */}
+			<div className='flex-1 ml-64 overflow-y-auto p-6'>
+				<div className='py-16 text-center'>
+					{/* Título Hero */}
+					<h1 className='text-5xl font-bold text-gray-800 mb-4'>
+						Stay Notified!
+					</h1>
+
+					{/* Subtítulo */}
+					<p className='text-xl text-gray-600 mb-8'>
+						Click on any button to trigger different notifications
+					</p>
+
+					<div className='flex flex-row flex-wrap gap-3 justify-center my-6 '>
+						{Object.entries(positionClasses).map(([key, value]) => (
+							<FlatRadioButton
+								key={value}
+								name={value}
+								label={key}
+								variant='regular'
+							/>
+						))}
+					</div>
+
+					<div className='flex flex-row flex-wrap gap-3 justify-center my-6 '>
+						{['filled', 'outlined', 'regular'].map((variant) => (
+							<FlatRadioButton
+								key={variant}
+								name={variant}
+								label={variant}
+								variant={variant}
+							/>
+						))}
+					</div>
+
+					{/* Botones de notificaciones */}
+					<div className='flex flex-row flex-wrap gap-4 justify-center'>
+						{array.map((type) => (
+							<button
+								key={type.label}
+								className={`px-6 py-3 rounded-lg ${type.color} ${type.hoverColor} font-semibold shadow-lg transform transition hover:scale-105`}
+								type='button'
+								onClick={() => handleNotification(type.label.toLowerCase())}>
+								{type.label}
+							</button>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>
 	)
 }
+
 export default NotificationPage
