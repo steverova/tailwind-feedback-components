@@ -1,6 +1,7 @@
 import FlatRadioButton from '../components/FlatRadioButton.jsx'
 import { types, positionClasses } from '../components/helper'
 import { useNotification } from '../components/Notification/useNotification'
+import notifySvg from '../assets/svg/notify.svg'
 
 const objectToArray = (values) => {
 	return Object.entries(values).map(([key, value]) => {
@@ -28,12 +29,11 @@ const NotificationPage = () => {
 		console.log(notificationId)
 	}
 
-	const positions = objectToArray(positionClasses)
 	const array = objectToArray(types)
 
 	return (
 		<div className='flex min-h-screen bg-green-100'>
-			<nav className='w-52 fixed  mt-12 '>
+			<nav className='w-32 fixed  mt-12 '>
 				<h2 className='text-md font-bold text-right text-gray-600  px-3 border-r-2 border-gray-300'>
 					Navigation
 				</h2>
@@ -41,8 +41,8 @@ const NotificationPage = () => {
 					{['install', 'usage', 'props', 'methods'].map((item) => (
 						<li key={item}>
 							<a
-								href='#step1'
-								className='border-r-2 border-gray-300 block text-right leading-8 text-sm font-medium px-3 hover:text-emerald-600 text-gray-600 hover:border-r-2 hover:border-emerald-600  '>
+								href={`#${item}`}
+								className='border-r-2 border-gray-300 block text-right leading-6 text-sm font-medium px-3 hover:text-emerald-600 text-gray-600 hover:border-r-2 hover:border-emerald-600  '>
 								{item}
 							</a>
 						</li>
@@ -50,18 +50,20 @@ const NotificationPage = () => {
 				</ul>
 			</nav>
 
-			{/* display: block;
-    line-height: 32px;
-    font-size: 14px;
-    font-weight: 400; */}
-
 			{/* Contenido principal */}
-			<div className='flex-1 ml-64 overflow-y-auto p-6'>
-				<div className='py-16 text-center'>
+			<div className='flex-1 ml-32 overflow-y-auto p-6'>
+				<div className='py-16 text-center items-center'>
 					{/* Título Hero */}
-					<h1 className='text-5xl font-bold text-gray-800 mb-4'>
-						Stay Notified!
-					</h1>
+					<div className='flex justify-center items-baseline text-line'>
+						<h1 className='text-5xl font-bold text-gray-800 mb-4 '>
+							Stay Notified{' '}
+						</h1>
+						<img
+							className='h-16 md:hidden lg:block'
+							src={notifySvg}
+							alt='notify'
+						/>
+					</div>
 
 					{/* Subtítulo */}
 					<p className='text-xl text-gray-600 mb-8'>
