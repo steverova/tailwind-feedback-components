@@ -4,8 +4,6 @@ import App from './App'
 import './index.css'
 import { AlertDialogProvider } from './components/AlertDialog/useAlertDialog'
 import { NotificationProvider } from './components/Notification/useNotification'
-import { RouterProvider } from 'react-router-dom'
-import router from './routes/routes'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>

@@ -1,5 +1,15 @@
-import { types } from '../components/helper'
+import FlatRadioButton from '../components/FlatRadioButton.jsx'
+import { types, positionClasses } from '../components/helper'
 import { useNotification } from '../components/Notification/useNotification'
+
+const objectToArray = (values) => {
+	return Object.entries(values).map(([key, value]) => {
+		return {
+			key,
+			...value
+		}
+	})
+}
 
 const NotificationPage = () => {
 	const { notificationHandler, closeNotification } = useNotification()
@@ -18,10 +28,11 @@ const NotificationPage = () => {
 		console.log(notificationId)
 	}
 
-	const array = Object.entries(types).map(([key, value]) => ({
-		key,
-		...value
-	}))
+	const positions = objectToArray(positionClasses)
+
+	console.log(positions)
+
+	const array = objectToArray(types)
 
 	return (
 		<div className='flex items-start justify-center min-h-full bg-green-100'>
@@ -35,6 +46,28 @@ const NotificationPage = () => {
 				<p className='text-xl text-gray-600 mb-8'>
 					Click on any button to trigger different notifications
 				</p>
+
+				<div className='flex flex-row gap-3 justify-center my-6 '>
+					{Object.entries(positionClasses).map(([key, value]) => (
+						<FlatRadioButton
+							key={value}
+							name={value}
+							label={key}
+							variant='regular'
+						/>
+					))}
+				</div>
+
+				<div className='flex flex-row gap-3 justify-center my-6 '>
+					{['filled', 'outlined', 'regular'].map((variant) => (
+						<FlatRadioButton
+							key={variant}
+							name={variant}
+							label={variant}
+							variant={variant}
+						/>
+					))}
+				</div>
 
 				{/* Botones de notificaciones */}
 				<div className='flex flex-row flex-wrap gap-4 justify-center'>
