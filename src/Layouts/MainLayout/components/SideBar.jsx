@@ -31,18 +31,18 @@ const sidebarItems = [
 
 const Sidebar = ({ isOpen, setShowSidebar }) => (
 	<div
-		className={`fixed top-0 left-0 h-full bg-blue-500 text-white p-4 transition-transform duration-300 ease-in-out transform z-50 shadow-lg ${
+		className={`fixed top-0 left-0 h-full bg-emerald-500 text-white p-4 transition-transform duration-300 ease-in-out transform z-50 shadow-lg ${
 			isOpen ? 'translate-x-0' : '-translate-x-full'
 		} md:translate-x-0 md:relative md:w-64 w-3/4`}>
 		<div>
-			<div className='relative flex items-center justify-center h-12 bg-blue-600 rounded-lg'>
+			<div className='relative flex items-center justify-center h-12 bg-emerald-600 rounded-lg'>
 				<span className='text-white font-bold uppercase'>My Sidebar</span>
 
 				<div className='absolute right-4'>
 					<button
 						onClick={() => setShowSidebar(false)}
 						type='button'
-						className='md:hidden flex items-center text-white hover:text-gray-300 focus:outline-none focus:text-gray-300'>
+						className=' flex items-center text-white hover:text-gray-300 focus:outline-none focus:text-gray-300'>
 						<XIcon className='h-6 w-6' />
 					</button>
 				</div>

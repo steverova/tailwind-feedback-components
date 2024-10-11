@@ -8,7 +8,7 @@ const NavItem = ({ title, icon, route }) => {
 			onClick={() => navigate(route)}
 			type='button'
 			href='#'
-			className='flex items-center px-4 py-2 gap-3 text-white hover:bg-blue-700 rounded-lg transition'>
+			className='flex items-center px-4 py-2 gap-3 text-white hover:bg-emerald-700 rounded-lg transition'>
 			{icon}
 			{title}
 		</button>

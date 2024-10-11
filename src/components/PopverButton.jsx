@@ -9,7 +9,7 @@ const PopoverButton = ({ children, title = 'title' }) => {
 	}
 
 	return (
-		<>
+		<div>
 			<button
 				type='button'
 				data-ripple-light='true'
@@ -30,7 +30,7 @@ const PopoverButton = ({ children, title = 'title' }) => {
 					{children}
 				</div>
 			)}
-		</>
+		</div>
 	)
 }
 

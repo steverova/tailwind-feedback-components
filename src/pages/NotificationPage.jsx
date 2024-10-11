@@ -33,8 +33,7 @@ const NotificationPage = () => {
 	const array = objectToArray(types)
 
 	return (
-		<div className=' flex min-h-screen bg-green-100'>
-
+		<div className=' flex min-h-screen bg-emerald-100'>
 			<nav className='hidden lg:block w-32 fixed  mt-12 '>
 				<h2 className='text-md font-bold text-right text-gray-600  px-3 border-r-2 border-gray-300'>
 					Navigation
@@ -53,11 +52,9 @@ const NotificationPage = () => {
 			</nav>
 
 			{/* Contenido principal */}
-			<div className='flex-1 sm:ml-32 overflow-y-auto  '>
-
-				<div className='sm:block md:hidden  w-full bg-red-300'>
-					hola
-					<div className='fixed top-13 right-10 z-10  bg-green-100'>
+			<div className='static flex-1 sm:ml-32 overflow-y-auto  '>
+				<div className=' sm:block md:hidden absolute  top-15 left-0 right-0 bg-emerald-100 text-end'>
+					<div className='flex flex-row justify-end items-end content-end me-10 mt-1'>
 						<PopoverButton title='Navigation'>
 							<ul className='p-0'>
 								{['install', 'usage', 'props', 'methods'].map((item) => (
@@ -73,6 +70,8 @@ const NotificationPage = () => {
 						</PopoverButton>
 					</div>
 				</div>
+
+
 
 				<div className='py-16 text-center items-center'>
 					{/* Título Hero */}

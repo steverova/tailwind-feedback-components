@@ -49,14 +49,12 @@ function MainLayout({ children }) {
 			<div className='flex flex-col flex-1 overflow-y-auto'>
 				{/* Header */}
 				<div className='relative'>
-					{!showSidebar && (
-						<button
-							type='button'
-							onClick={toggleSidebar}
-							className='md:hidden fixed top-4 left-4 p-2 flex items-center justify-center text-white *:text-blue-500 focus:outline-none focus:text-blue-700'>
-							<MenuIcon className='w-6 h-6' />
-						</button>
-					)}
+					<button
+						type='button'
+						onClick={toggleSidebar}
+						className='fixed top-4 left-4 p-2 flex items-center justify-center text-white *:text-emerald-500 focus:outline-none focus:text-emerald-700 '>
+						<MenuIcon className='w-6 h-6' />
+					</button>
 				</div>
 
 				{/* Header */}
