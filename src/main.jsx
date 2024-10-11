@@ -14,6 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 				animation: 'fadeScale'
 			}}>
 			<AlertDialogProvider>
+				
 				<App />
 			</AlertDialogProvider>
 		</NotificationProvider>
