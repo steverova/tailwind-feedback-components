@@ -1,4 +1,4 @@
-import { MenuIcon, XIcon } from 'lucide-react'
+import { MenuIcon } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Sidebar from './components/SideBar'
@@ -65,7 +65,6 @@ function MainLayout({ children }) {
 				{/* Main content area */}
 				<div className='h-screen overflow-y-auto'>
 					{children}
-
 					<Outlet />
 				</div>
 			</div>

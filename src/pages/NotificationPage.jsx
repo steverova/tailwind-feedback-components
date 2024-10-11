@@ -53,9 +53,11 @@ const NotificationPage = () => {
 			</nav>
 
 			{/* Contenido principal */}
-			<div className='flex-1 sm:ml-32 overflow-y-auto p-6'>
-				<div className='sm:block md:hidden'>
-					<div className='fixed top-15 right-10 z-10  '>
+			<div className='flex-1 sm:ml-32 overflow-y-auto  '>
+
+				<div className='sm:block md:hidden  w-full bg-red-300'>
+					hola
+					<div className='fixed top-13 right-10 z-10  bg-green-100'>
 						<PopoverButton title='Navigation'>
 							<ul className='p-0'>
 								{['install', 'usage', 'props', 'methods'].map((item) => (
