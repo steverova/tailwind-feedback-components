@@ -5,14 +5,21 @@ import NotificationPage from '../pages/NotificationPage'
 import ModalPage from '../pages/ModalPage'
 import WrapperContextPage from '../pages/WrapperContextPage'
 import MainLayout from '../Layouts/MainLayout/MainLayout'
+import Home from '../pages/Home'
+
 
 const routes = [
 	{
-		path: '/', // Ruta raíz que aplica el layout
-		element: <MainLayout />, // MainLayout se aplica a todas las rutas hijas
+		path: '/',
+		element: <Home/> 
+
+	},
+	{
+		path: 'pages', 
+		element: <MainLayout />, 
 		children: [
 			{
-				index: true, // Ruta raíz ("/") servirá DashboardPage
+				index: true, 
 				element: <DashboardPage />
 			},
 			{

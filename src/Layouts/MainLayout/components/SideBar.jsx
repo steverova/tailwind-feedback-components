@@ -3,29 +3,24 @@ import NavItem from './NavItem'
 
 const sidebarItems = [
 	{
-		label: 'Dashboard',
-		icon: <LayoutDashboardIcon />,
-		route: '/'
-	},
-	{
 		label: 'Alert Dialog',
 		icon: <PuzzleIcon />,
-		route: '/alert-dialog'
+		route: '/pages/alert-dialog'
 	},
 	{
 		label: 'Notification',
 		icon: <PuzzleIcon />,
-		route: '/notification'
+		route: '/pages/notification'
 	},
 	{
 		label: 'Modal',
 		icon: <PuzzleIcon />,
-		route: '/modal'
+		route: '/pages/modal'
 	},
 	{
 		label: 'Wrapper Context',
 		icon: <PuzzleIcon />,
-		route: '/wrapper-context'
+		route: '/pages/wrapper-context'
 	}
 ]
 

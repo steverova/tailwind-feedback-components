@@ -61,7 +61,7 @@ function MainLayout({ children }) {
 				<Header toggleSidebar={toggleSidebar} />
 
 				{/* Main content area */}
-				<div className='h-screen overflow-y-auto'>
+				<div className='main-layout h-screen overflow-y-auto'>
 					{children}
 					<Outlet />
 				</div>
