@@ -71,7 +71,8 @@ const NotificationPage = () => {
 	}
 
 	const array = objectToArray(types)
-	const route = new URL('/src/markdown/notification.md', import.meta.url).pathname
+	const route = new URL('/src/markdown/notification.md', import.meta.url)
+		.pathname
 
 	return (
 		<div className='flex min-h-screen bg-emerald-50'>
@@ -89,8 +90,7 @@ const NotificationPage = () => {
 									activeItem === item
 										? 'text-emerald-600 border-emerald-600'
 										: 'text-gray-400'
-								}`}
-							>
+								}`}>
 								{item}
 							</a>
 						</li>
@@ -113,8 +113,7 @@ const NotificationPage = () => {
 												activeItem === item
 													? 'text-emerald-600 border-emerald-600'
 													: 'text-gray-600'
-											}`}
-										>
+											}`}>
 											{item}
 										</a>
 									</li>
@@ -142,7 +141,9 @@ const NotificationPage = () => {
 						Click on any button to trigger different notifications.
 					</p>
 
-					<section className='py-12' id='demo'>
+					<section
+						className='py-12'
+						id='demo'>
 						<div className='flex flex-row flex-wrap gap-3 justify-center '>
 							{Object.entries(positionClasses).map(([key, value]) => (
 								<FlatRadioButton
@@ -172,8 +173,7 @@ const NotificationPage = () => {
 									key={type.label}
 									className={`px-6 py-3 rounded-lg ${type.color} ${type.hoverColor} font-semibold shadow-lg transform transition hover:scale-105`}
 									type='button'
-									onClick={() => handleNotification(type.label.toLowerCase())}
-								>
+									onClick={() => handleNotification(type.label.toLowerCase())}>
 									{type.label}
 								</button>
 							))}
@@ -181,15 +181,13 @@ const NotificationPage = () => {
 					</section>
 
 					<section id='usage'>
-						<MarkdownRenderer path={route} />
+						
 					</section>
 
-					<section id='props'>
-						{/* Contenido de props */}
-					</section>
+					<section id='props'>{/* Contenido de props */}</section>
 
 					<section id='documentation'>
-						{/* Contenido de documentation */}
+						<MarkdownRenderer path={route} />
 					</section>
 				</div>
 			</div>
