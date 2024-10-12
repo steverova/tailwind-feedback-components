@@ -37,6 +37,7 @@ const NotificationPage = () => {
 		console.log(sections)
 		const handleScroll = () => {
 			sections.forEach((section) => {
+				console.log(section)
 				const rect = section.getBoundingClientRect()
 				if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
 					const id = section.getAttribute('id')
@@ -53,7 +54,7 @@ const NotificationPage = () => {
 		return () => {
 			window.removeEventListener('scroll', handleScroll)
 		}
-	}, [])
+	}, [activeItem])
 
 	const handleNotification = async (type) => {
 		const notificationId = await notificationHandler(`${type} notification`, {
@@ -84,10 +85,10 @@ const NotificationPage = () => {
 							<a
 								href={`#${item}`}
 								onClick={() => handleNavClick(item)} // Evento de clic
-								className={`border-r-2 border-gray-300 block text-right leading-6 text-sm font-medium px-3 hover:text-emerald-600 ${
+								className={`border-r-2 border-gray-300 hover:border-emerald-500 block text-right leading-6 text-sm font-medium px-3 hover:text-gray-600 ${
 									activeItem === item
 										? 'text-emerald-600 border-emerald-600'
-										: 'text-gray-600'
+										: 'text-gray-400'
 								}`}
 							>
 								{item}
