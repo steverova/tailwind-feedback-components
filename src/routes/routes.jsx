@@ -1,26 +1,30 @@
 import { createBrowserRouter } from 'react-router-dom'
-import DashboardPage from '../pages/DashboardPage'
-import AlertDialogPage from '../pages/AlertDialogPage'
-import NotificationPage from '../pages/NotificationPage'
-import ModalPage from '../pages/ModalPage'
-import WrapperContextPage from '../pages/WrapperContextPage'
 import MainLayout from '../Layouts/MainLayout/MainLayout'
+import AlertDialogPage from '../pages/AlertDialogPage'
+import ButtonPage from '../pages/ButtonPage'
+import DashboardPage from '../pages/DashboardPage'
 import Home from '../pages/Home'
-
+import ModalPage from '../pages/ModalPage'
+import NotificationPage from '../pages/NotificationPage/NotificationPage'
+import WrapperContextPage from '../pages/WrapperContextPage'
 
 const routes = [
 	{
 		path: '/',
-		element: <Home/> 
-
+		element: <Home />
 	},
+
 	{
-		path: 'pages', 
-		element: <MainLayout />, 
+		path: 'pages',
+		element: <MainLayout />,
 		children: [
 			{
-				index: true, 
+				index: true,
 				element: <DashboardPage />
+			},
+			{
+				path: 'button',
+				element: <ButtonPage />
 			},
 			{
 				path: 'alert-dialog',

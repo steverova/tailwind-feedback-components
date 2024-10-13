@@ -3,6 +3,11 @@ import NavItem from './NavItem'
 
 const sidebarItems = [
 	{
+		label: 'Button',
+		icon: <PuzzleIcon />,
+		route: '/pages/button'
+	},
+	{
 		label: 'Alert Dialog',
 		icon: <PuzzleIcon />,
 		route: '/pages/alert-dialog'

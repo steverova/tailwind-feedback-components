@@ -6,10 +6,11 @@ import 'highlight.js/styles/panda-syntax-dark.css'
 import './mark.css'
 import { Copy } from 'lucide-react'
 import { useNotification } from './Notification/NotificationProvider'
+import LoadingSpinner from './LoadingSpinner'
 
 const CodeCopyBtn = ({ code }) => {
 	const [copyOk, setCopyOk] = useState(false)
-	const { notificationHandler, closeNotification } = useNotification()
+	const { notificationHandler } = useNotification()
 
 	const handleClick = async () => {
 		navigator.clipboard.writeText(code)
@@ -29,7 +30,9 @@ const CodeCopyBtn = ({ code }) => {
 			type='button'
 			onClick={handleClick}
 			className={`${copyOk ? 'text-emerald-400' : ''}`}>
-			<Copy />
+			<span className='flex flex-row items-center gap-x-2 font-semibold hover:text-emerald-600'>
+				<Copy /> <p>Copy to clipboard</p>
+			</span>
 		</button>
 	)
 }
@@ -52,9 +55,12 @@ const extractText = (node) => {
 
 const MarkdownViewer = ({ path = '' }) => {
 	const [content, setContent] = useState('')
+	const [isLoading, setIsLoading] = useState(false)
+	const [isContentVisible, setIsContentVisible] = useState(false) // Nuevo estado para el fade
 	const route = new URL(path, import.meta.url).pathname
 
 	const fetchMarkdown = async () => {
+		setIsLoading(true)
 		try {
 			const response = await fetch(route)
 			if (!response.ok) {
@@ -62,8 +68,11 @@ const MarkdownViewer = ({ path = '' }) => {
 			}
 			const data = await response.text()
 			setContent(data)
+			setIsContentVisible(true) // Mostrar contenido con fade
 		} catch (error) {
 			console.error('Error fetching markdown:', error)
+		} finally {
+			setIsLoading(false)
 		}
 	}
 
@@ -84,15 +93,25 @@ const MarkdownViewer = ({ path = '' }) => {
 		)
 	}
 
+	if (isLoading) {
+		return <LoadingSpinner />
+	}
+
 	return (
-		<div className='markdown mx-12 px-6 rounded-lg text-wrap'>
+		<div
+			className={`markdown mx-12 px-6 rounded-lg text-wrap ${isContentVisible ? 'fade-in' : ''}`}>
 			<ReactMarkdown
-				className='text-wrap'
+				className='text-wrap flex flex-col flex-wrap'
 				remarkPlugins={[remarkGfm]}
 				rehypePlugins={[rehypeHighlight]}
 				components={{
 					pre: Pre,
-					code({ inline, className = 'blog-code', children, ...props }) {
+					code({
+						inline,
+						className = 'blog-code font-bold',
+						children,
+						...props
+					}) {
 						return (
 							<code
 								className={className}

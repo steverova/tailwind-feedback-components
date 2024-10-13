@@ -22,7 +22,7 @@ function Tabs({ tabs = [] }) {
 	const [currentTab, setCurrentTab] = useState(0)
 
 	return (
-		<div className='sm:p-0  mt-4 flex flex-col justify-center items-center px-6 md:px-0'>
+		<div className='sm:p-0  mt-4 flex flex-col justify-center items-center px-6 md:px-0 '>
 			<div className='flex'>
 				<div className='flex bg-emerald-200 rounded-lg transition p-1 '>
 					<nav
@@ -51,7 +51,7 @@ function Tabs({ tabs = [] }) {
 				</div>
 			</div>
 
-			<div className='mt-3 w-full overflow-x-auto'>
+			<div className='mt-3 w-full overflow-x-auto  flex flex-row flex-wrap justify-center'>
 				{tabs.map((tab, index) => (
 					<div key={tab.id}>
 						{currentTab === index && (
