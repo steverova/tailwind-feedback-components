@@ -13,26 +13,23 @@ const Demo = () => {
 		variant: 'filled',
 		behavior: 'autoHide'
 	})
-	const { notificationHandler, closeNotification } = useNotification()
+	const { notificationHandler } = useNotification()
 
 	const handleNotification = async (type) => {
-		const notificationId = await notificationHandler(`${type} notification`, {
+		await notificationHandler(`${type} notification`, {
 			type: type,
 			variant: setup.variant,
 			behavior: setup.behavior // Asegúrate de que esté usando el estado
 		})
-
-		setTimeout(() => {
-			closeNotification(notificationId)
-		}, 5000)
 	}
 
 	const array = objectToArray(types)
 
 	const handleVariantChange = (event) => {
-		const selectedVariant = event.target.value
-		console.log('variant ->', selectedVariant)
-		setSetup((prev) => ({ ...prev, variant: selectedVariant })) // Actualiza la variante en el estado
+		const { name, value } = event.target
+
+		// Actualiza la variante o el comportamiento según el nombre
+		setSetup((prev) => ({ ...prev, [name]: value }))
 	}
 
 	return (
@@ -53,19 +50,23 @@ const Demo = () => {
 				Click on any button to trigger different notifications.
 			</p>
 
+			{/* Botones de posición */}
 			<div className='flex flex-row flex-wrap gap-3 justify-center'>
 				{Object.entries(positionClasses).map(([key, value]) => (
 					<FlatRadioButton
 						key={value}
-						name={value}
+						name='position' // Nombre común para los botones de posición
 						label={key}
-						checked={setup.position === value} // Cambia según la lógica del estado
+						checked={setup.position === value} // Verifica si es el valor seleccionado
 						onChange={() => setSetup((prev) => ({ ...prev, position: value }))} // Actualiza la posición
 						variant='regular'
 					/>
 				))}
 			</div>
 
+			<hr className='my-6' />
+
+			{/* Botones de variante */}
 			<div className='flex flex-row flex-wrap gap-3 justify-center my-6'>
 				{['filled', 'outlined', 'regular'].map((variant) => (
 					<FlatRadioButton
@@ -81,10 +82,31 @@ const Demo = () => {
 				))}
 			</div>
 
+			<hr className='my-6' />
+
+			{/* Botones de comportamiento */}
+			<div className='flex flex-row flex-wrap gap-3 justify-center my-6'>
+				{['autoHide', 'persistent'].map((behavior) => (
+					<FlatRadioButton
+						key={behavior}
+						id={behavior}
+						name='behavior' // Nombre común para todos los botones de comportamiento
+						value={behavior}
+						label={behavior}
+						checked={setup.behavior === behavior} // Verifica si es el valor seleccionado
+						onChange={handleVariantChange} // Manejador actualizado
+						variant='regular'
+					/>
+				))}
+			</div>
+
+			<hr className='my-6' />
+
+			{/* Botones para generar notificaciones */}
 			<div className='flex flex-row flex-wrap gap-4 justify-center'>
 				{array.map((type) => (
 					<Button
-						variant={setup.variant}
+						variant={setup.variant === 'regular' ? 'text' : setup.variant}
 						key={type.label}
 						color={type.label.toLowerCase()}
 						onClick={() => handleNotification(type.label.toLowerCase())}>
@@ -92,6 +114,8 @@ const Demo = () => {
 					</Button>
 				))}
 			</div>
+
+			<hr className='my-6' />
 		</div>
 	)
 }

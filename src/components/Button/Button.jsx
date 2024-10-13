@@ -85,11 +85,11 @@ const Button = ({
         ${color === 'success' ? 'border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white' : ''}
       `,
 			text: `
-        bg-transparent hover:bg-transparent shadow-none hover:shadow-none
+        bg-transparent text-${color}-500 hover:bg-transparent
         ${color === 'info' ? 'text-blue-500' : ''}
         ${color === 'ok' ? 'text-gray-500' : ''}
         ${color === 'danger' ? 'text-red-500' : ''}
-        ${color === 'warning' ? 'text-yellow-500' : ''}
+        ${color === 'warning' ? 'text-yellow-500 ' : ''}
         ${color === 'success' ? 'text-emerald-500' : ''}
       `,
 			tonal: `
@@ -98,7 +98,6 @@ const Button = ({
         ${color === 'danger' ? 'bg-red-200 hover:bg-red-300 text-red-800' : ''}
         ${color === 'warning' ? 'bg-yellow-200 hover:bg-yellow-300 text-yellow-800' : ''}
         ${color === 'success' ? 'bg-emerald-200 hover:bg-emerald-300 text-emerald-800' : ''}
-        
       `
 		}
 	}
@@ -107,7 +106,15 @@ const Button = ({
     ${variant === 'tonal' ? buttonStyles.variant.tonal : buttonStyles.color[color]} 
     ${buttonStyles.size[size]} 
     ${buttonStyles.elevation[elevation]} 
-    ${variant === 'filled' ? buttonStyles.variant.filled : variant === 'outlined' ? buttonStyles.variant.outlined : variant === 'text' ? buttonStyles.variant.text : ''} 
+    ${
+			variant === 'filled'
+				? buttonStyles.variant.filled
+				: variant === 'outlined'
+					? buttonStyles.variant.outlined
+					: variant === 'text'
+						? buttonStyles.variant.text
+						: ''
+		} 
     ${buttonStyles.rounded[rounded]} 
     font-semibold 
     ${disabled || loading ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-lg'}
