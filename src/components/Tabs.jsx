@@ -22,11 +22,11 @@ function Tabs({ tabs = [] }) {
 	const [currentTab, setCurrentTab] = useState(0)
 
 	return (
-		<div className='sm:p-0 md:px-12 mt-4 flex flex-col justify-center items-center'>
+		<div className='sm:p-0  mt-4 flex flex-col justify-center items-center px-6 md:px-0'>
 			<div className='flex'>
-				<div className='flex bg-emerald-200 rounded-lg transition p-1'>
+				<div className='flex bg-emerald-200 rounded-lg transition p-1 '>
 					<nav
-						className='flex flex-row flex-wrap gap-x-1'
+						className='flex flex-row flex-wrap gap-x-1 '
 						aria-label='Tabs'
 						role='tablist'
 						aria-orientation='horizontal'>
