@@ -33,7 +33,7 @@ const Demo = () => {
 	}
 
 	return (
-		<div>
+		<div className='bg-white mx-12 rounded-lg py-6'>
 			<div className='flex justify-center items-baseline text-line'>
 				<h1 className='text-5xl font-bold text-gray-800 mb-4'>
 					Stay Notified{' '}
@@ -64,7 +64,7 @@ const Demo = () => {
 				))}
 			</div>
 
-			<hr className='my-6' />
+			<hr className='my-6 w-1/2 mx-auto' />
 
 			{/* Botones de variante */}
 			<div className='flex flex-row flex-wrap gap-3 justify-center my-6'>
@@ -82,7 +82,7 @@ const Demo = () => {
 				))}
 			</div>
 
-			<hr className='my-6' />
+			<hr className='my-6 w-1/2 mx-auto' />
 
 			{/* Botones de comportamiento */}
 			<div className='flex flex-row flex-wrap gap-3 justify-center my-6'>
@@ -100,7 +100,7 @@ const Demo = () => {
 				))}
 			</div>
 
-			<hr className='my-6' />
+			<hr className='my-6 w-1/2 mx-auto' />
 
 			{/* Botones para generar notificaciones */}
 			<div className='flex flex-row flex-wrap gap-4 justify-center'>
@@ -114,8 +114,6 @@ const Demo = () => {
 					</Button>
 				))}
 			</div>
-
-			<hr className='my-6' />
 		</div>
 	)
 }
