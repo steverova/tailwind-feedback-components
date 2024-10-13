@@ -180,7 +180,7 @@ const NotificationPage = () => {
 							className='py-12'>
 							<div className='min-h-screen '>
 								<h2 className='text-3xl font-bold mb-6'>Documentation</h2>
-								<MarkdownRenderer path='/src/components/Notification/Markdown/readme.md' />
+								<MarkdownRenderer path='/markdown/notification/readme.md' />
 							</div>
 						</section>
 
