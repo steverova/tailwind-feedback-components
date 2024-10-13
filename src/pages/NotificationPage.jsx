@@ -130,28 +130,28 @@ const NotificationPage = () => {
 											id: 'tab-0',
 											title: 'How to use',
 											content: (
-												<MarkdownRenderer path='/src/components/Notification/Markdown/HowToUse.md' />
+												<MarkdownRenderer path='../../public/markdown/notification/HowToUse.md' />
 											)
 										},
 										{
 											id: 'tab-1',
 											title: 'NotificationStack.jsx',
 											content: (
-												<MarkdownRenderer path='/src/components/Notification/Markdown/NotificationStack.md' />
+												<MarkdownRenderer path='../../public/markdown/notification/NotificationStack.md' />
 											)
 										},
 										{
 											id: 'tab-2',
 											title: 'Notification.jsx',
 											content: (
-												<MarkdownRenderer path='/src/components/Notification/Markdown/Notification.md' />
+												<MarkdownRenderer path='../../public/markdown/notification/Notification.md' />
 											)
 										},
 										{
 											id: 'tab-3',
 											title: 'NotificationProvider.jsx',
 											content: (
-												<MarkdownRenderer path='/src/components/Notification/Markdown/NotificationProvider.md' />
+												<MarkdownRenderer path='../../public/markdown/notification/NotificationProvider.md' />
 											)
 										},
 										{
