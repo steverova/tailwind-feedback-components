@@ -1,3 +1,5 @@
+```jsx
+
 import {
 	InfoIcon,
 	CircleCheckBigIcon,

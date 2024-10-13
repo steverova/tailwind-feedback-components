@@ -157,16 +157,7 @@ const NotificationPage = () => {
 										{
 											id: 'tab-4',
 											title: 'Types.jsx',
-											content: (
-												<div className='min-h-screen'>
-													<h3 className='text-2xl font-bold'>Ejemplo</h3>
-													<p>
-														Para mostrar una notificación, simplemente llame a
-														la función <code>notificationHandler</code> con el
-														mensaje y las opciones necesarias.
-													</p>
-												</div>
-											)
+											content: <MarkdownRenderer path='/markdown/notification/Types.md' />
 										}
 									]}
 								/>

@@ -35,7 +35,7 @@ function Tabs({ tabs = [] }) {
 								key={tab.id}
 								onClick={() => setCurrentTab(index)}
 								type='button'
-								className={`py-3 px-4 flex flex-row justify-between gap-x-2 bg-transparent text-sm font-medium rounded-lg transition ${
+								className={`py-3 px-4 flex flex-row justify-between gap-x-2  text-sm font-medium rounded-lg transition ${
 									currentTab === index
 										? 'bg-emerald-700 shadow-lg text-white' // Active tab background
 										: 'text-gray-500 hover:text-emerald-600'
