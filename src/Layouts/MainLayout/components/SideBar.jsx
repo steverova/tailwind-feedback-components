@@ -28,7 +28,7 @@ const Sidebar = ({ isOpen, setShowSidebar }) => (
 	<div
 		className={`fixed top-0 left-0 h-full bg-emerald-400 text-white p-4 transition-transform duration-300 ease-in-out transform z-50 shadow-lg ${
 			isOpen ? 'translate-x-0' : '-translate-x-full'
-		} md:translate-x-0 md:relative md:w-64 w-3/4`}>
+		} lg:translate-x-0 lg:relative lg:w-64 w-2/4`}>
 		<div>
 			<div className='relative flex items-center justify-center h-12 bg-emerald-300 rounded-lg'>
 				<span className='text-white font-bold uppercase'>My Sidebar</span>
