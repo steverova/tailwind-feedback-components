@@ -1,41 +1,36 @@
 {
-  "name": "AlertDialog",
+  "name": "components",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "build": "cross-env NODE_ENV=production rspack build",
-    "check": "biome check --write",
-    "dev": "cross-env NODE_ENV=development rspack serve",
-    "format": "biome format --write",
-    "preview": "serve -s dist"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@react-spring/web": "^9.7.4",
+    "@react-spring/web": "^9.7.5",
     "highlight.js": "^11.10.0",
-    "lucide-react": "^0.447.0",
+    "lucide-react": "^0.451.0",
     "nanoid": "^5.0.7",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "react-code-blocks": "^0.1.6",
-    "react-dom": "^18.2.0",
+    "react-dom": "^18.3.1",
     "react-markdown": "^9.0.1",
     "react-router-dom": "^6.26.2",
     "rehype-highlight": "^7.0.0",
-    "remark-gfm": "^4.0.0",
-    "remark-html": "^16.0.1",
-    "remark-loader": "^6.0.0"
+    "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
-    "@rspack/cli": "^1.0.8",
-    "@rspack/core": "^1.0.8",
-    "@rspack/plugin-react-refresh": "1.0.0",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
+    "@biomejs/biome": "1.9.3",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
     "autoprefixer": "^10.4.20",
-    "cross-env": "^7.0.3",
+    "globals": "^15.9.0",
     "postcss": "^8.4.47",
-    "postcss-loader": "^8.1.1",
-    "react-refresh": "^0.14.0",
-    "tailwindcss": "^3.4.13"
+    "tailwindcss": "^3.4.13",
+    "vite": "^5.4.8"
   }
 }

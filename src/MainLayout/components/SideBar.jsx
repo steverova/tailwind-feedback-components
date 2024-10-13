@@ -1,4 +1,4 @@
-import { XIcon, PuzzleIcon } from 'lucide-react'
+import { XIcon, LayoutDashboardIcon, PuzzleIcon } from 'lucide-react'
 import NavItem from './NavItem'
 
 const sidebarItems = [
@@ -26,11 +26,11 @@ const sidebarItems = [
 
 const Sidebar = ({ isOpen, setShowSidebar }) => (
 	<div
-		className={`fixed top-0 left-0 h-full bg-emerald-400 text-white p-4 transition-transform duration-300 ease-in-out transform z-50 shadow-lg ${
+		className={`fixed top-0 left-0 h-full bg-emerald-500 text-white p-4 transition-transform duration-300 ease-in-out transform z-50 shadow-lg ${
 			isOpen ? 'translate-x-0' : '-translate-x-full'
 		} md:translate-x-0 md:relative md:w-64 w-3/4`}>
 		<div>
-			<div className='relative flex items-center justify-center h-12 bg-emerald-300 rounded-lg'>
+			<div className='relative flex items-center justify-center h-12 bg-emerald-600 rounded-lg'>
 				<span className='text-white font-bold uppercase'>My Sidebar</span>
 
 				<div className='absolute right-4'>

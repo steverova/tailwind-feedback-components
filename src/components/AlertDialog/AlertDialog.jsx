@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { types } from '../helper'
+import { types } from './Types'
 
 export const AlertDialog = ({
 	isOpen = false,

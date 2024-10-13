@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
-import { AlertDialogProvider } from './components/AlertDialog/useAlertDialog'
-import { NotificationProvider } from './components/Notification/useNotification'
+import { AlertDialogProvider } from './components/AlertDialog/AlertDialogProvider'
+import { NotificationProvider } from './components/Notification/NotificationProvider'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>

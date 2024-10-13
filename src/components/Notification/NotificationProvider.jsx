@@ -92,6 +92,16 @@ export const NotificationProvider = ({
 	)
 }
 
+export const useNotification = () => {
+	const context = useContext(NotificationContext)
+	if (!context) {
+		throw new Error(
+			'useNotification must be used within a NotificationProvider'
+		)
+	}
+	return context
+}
+
 const validateProps = ({ behavior, variant, type }) => {
 	if (!['autoHide', 'persistent'].includes(behavior)) {
 		throw new Error(
@@ -112,14 +122,4 @@ const validateProps = ({ behavior, variant, type }) => {
 	}
 
 	return true
-}
-
-export const useNotification = () => {
-	const context = useContext(NotificationContext)
-	if (!context) {
-		throw new Error(
-			'useNotification must be used within a NotificationProvider'
-		)
-	}
-	return context
 }
