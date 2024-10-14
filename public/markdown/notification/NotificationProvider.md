@@ -140,19 +140,22 @@ export const useNotification = () => {
 const validateProps = ({ behavior, variant, type }) => {
 	if (!['autoHide', 'persistent'].includes(behavior)) {
 		throw new Error(
-			`Invalid behavior value: ${behavior}. Expected: 'autoHide' || 'persistent'.`
+			`Invalid behavior value: ${behavior}. 
+			Expected: 'autoHide' || 'persistent'.`
 		)
 	}
 
 	if (!['regular', 'filled', 'outlined'].includes(variant)) {
 		throw new Error(
-			`Invalid variant value: ${variant}. Expected: 'regular' || 'filled' || 'outlined'.`
+			`Invalid variant value: ${variant}. 
+			Expected: 'regular' || 'filled' || 'outlined'.`
 		)
 	}
 
 	if (!['success', 'info', 'warning', 'danger', 'ok'].includes(type)) {
 		throw new Error(
-			`Invalid type value: ${type}. Expected: 'success' || 'info' || 'warning' || 'danger' || 'ok'.`
+			`Invalid type value: ${type}. 
+			Expected: 'success' || 'info' || 'warning' || 'danger' || 'ok'.`
 		)
 	}
 
