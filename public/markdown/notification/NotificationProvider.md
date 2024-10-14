@@ -66,7 +66,8 @@ export const NotificationProvider = ({
 
 					const updatedNotifications = [
 						...filteredNotifications.slice(
-							Math.max(filteredNotifications.length - (maxNotifications - 1), 0)
+							Math.max(filteredNotifications.length - 
+							(maxNotifications - 1), 0)
 						),
 						{
 							id,
@@ -102,7 +103,8 @@ export const NotificationProvider = ({
 
 	const closeNotification = (id) => {
 		setNotificationOptions((prev) =>
-			prev.filter((notification) => notification.id !== id)
+			prev.filter((notification) =>
+			 notification.id !== id)
 		)
 	}
 
