@@ -1,6 +1,11 @@
 ## NotificationProvider Component
 
-The `NotificationProvider` component serves as the context provider for handling and displaying notifications in a React application. It wraps the application and provides a mechanism for managing notifications, including displaying them with a limit on the number of visible notifications, positioning them on the screen, and allowing customizable animations and behaviors.
+The `NotificationProvider` component serves as the context provider for handling 
+and displaying notifications in a React application. 
+It wraps the application and provides a mechanism for 
+managing notifications, including displaying them with a 
+limit on the number of visible notifications, positioning them on the screen, 
+and allowing customizable animations and behaviors.
 
 ### Props:
 

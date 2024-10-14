@@ -1,6 +1,8 @@
 ## Notification Component
 
-`Notification` is a React component that displays a toast message based on the provided options. It supports different types and variants, auto-hide with a countdown, and persistent notifications.
+`Notification` is a React component that displays a toast message 
+based on the provided options. It supports different types and variants, 
+auto-hide with a countdown, and persistent notifications.
 
 ### Props:
 - `closeNotification`: Function to close the notification.
@@ -8,15 +10,19 @@
   - `type`: The type of notification (e.g., success, error).
   - `variant`: The variant of the notification (e.g., filled, outlined).
   - `timer`: Duration before auto-hide (if not persistent).
-  - `persistent`: Boolean to determine if the notification is persistent or auto-hide.
+  - `persistent`: Boolean to determine if the notification is 
+     persistent or auto-hide.
   - `id`: Unique identifier for the notification.
   - `newProps`: Additional properties for custom content.
 - `isOpen`: Boolean indicating if the notification is visible.
 
 ### Features:
-- **Auto-hide with Countdown**: Displays a countdown using dots, which decrease over time.
-- **Persistent Notifications**: Offers a close button for persistent notifications.
-- **Progress Bar**: Shows a progress bar for persistent notifications.
+- **Auto-hide with Countdown**: Displays a countdown using dots, 
+  which decrease over time.
+- **Persistent Notifications**: Offers a close button for 
+  persistent notifications.
+- **Progress Bar**: Shows a progress bar for persistent 
+  notifications.
 
 ### Example:
 
@@ -42,7 +48,8 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 		if (isOpen) {
 			setRemainingDots(timer)
 			const interval = setInterval(() => {
-				setRemainingDots((prevDots) => (prevDots > 0 ? prevDots - 1 : 0))
+				setRemainingDots((prevDots) => (prevDots > 0 
+				? prevDots - 1 : 0))
 			}, 1000)
 			return () => clearInterval(interval)
 		}
@@ -52,12 +59,14 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 		<div
 			style={{
 				zIndex: 9999,
-				boxShadow:
-					'rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px'
+				boxShadow: {`${rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, 
+				rgba(14, 30, 37, 0.32) 0px 2px 16px 0px}`}
+					
 			}}
 			className={`max-w-xs rounded-lg overflow-hidden 
-				${variant === 'filled' ? types[type].accentColor : variant === 'outlined' 
-        ? `border-2 bg-white z-100 ${types[type].border}` : 'bg-white'}
+				${variant === 'filled' ? types[type].accentColor : 
+				variant === 'outlined' ? `border-2 bg-white z-100 
+				${types[type].border}` : 'bg-white'}
 			`}
 			role='alert'
 			tabIndex='-1'
@@ -118,7 +127,8 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 					<animated.div
 						style={animationProps}
 						className={`absolute h-full w-full 
-						bg-gradient-to-r from-blue-400 ${types[type].progress}`}
+						bg-gradient-to-r from-blue-400 
+						${types[type].progress}`}
 					/>
 				</div>
 			)}
