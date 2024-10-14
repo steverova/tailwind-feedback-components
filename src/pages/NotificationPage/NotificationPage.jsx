@@ -53,12 +53,12 @@ const NotificationPage = () => {
 												<div className='flex flex-col'>
 													<MarkdownRenderer path='/markdown/notification/howtouse/introduction.md' />
 													<MarkdownRenderer path='/markdown/notification/howtouse/code01.md' />
-													{/* <MarkdownRenderer path='/markdown/notification/howtouse/introduction02.md' />
+													<MarkdownRenderer path='/markdown/notification/howtouse/introduction02.md' />
 													<MarkdownRenderer path='/markdown/notification/howtouse/code02.md' />
 
 													<MarkdownRenderer path='/markdown/notification/howtouse/introduction03.md' />
 
-													<MarkdownRenderer path='/markdown/notification/howtouse/code03.md' /> */}
+													<MarkdownRenderer path='/markdown/notification/howtouse/code03.md' />
 												</div>
 											)
 										},
