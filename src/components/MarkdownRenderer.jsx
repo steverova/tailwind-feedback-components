@@ -99,9 +99,9 @@ const MarkdownViewer = ({ path = '' }) => {
 
 	return (
 		<div
-			className={`markdown mx-12 px-6 rounded-lg text-wrap ${isContentVisible ? 'fade-in' : ''}`}>
+			className={`markdown mx-12 px-6 rounded-lg ${isContentVisible ? 'fade-in' : ''} break-words`}>
 			<ReactMarkdown
-				className='text-wrap flex flex-col flex-wrap'
+				className='flex flex-col flex-wrap'
 				remarkPlugins={[remarkGfm]}
 				rehypePlugins={[rehypeHighlight]}
 				components={{

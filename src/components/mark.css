@@ -92,3 +92,11 @@ li > code {
   margin-left: 2em;
   list-style: disc;
 }
+
+.hljs {
+  display: block;
+  overflow-x: scroll;
+  padding: 0.5em;
+
+
+}
