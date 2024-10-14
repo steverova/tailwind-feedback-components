@@ -51,7 +51,7 @@ function Tabs({ tabs = [] }) {
 				</div>
 			</div>
 
-			<div className='mt-3 w-full overflow-x-auto'>
+			<div className='mt-3 overflow-x-auto'>
 				{tabs.map((tab, index) => (
 					<div key={tab.id}>
 						{currentTab === index && (
