@@ -11,13 +11,14 @@ const NotificationPage = () => {
 	const [methods, setMethods] = useState('')
 
 	const sectionIds = ['demo', 'usage', 'documentation']
+	
+	const navigationMethods = {
+		setMethods,
+		methods
+	}
 
 	return (
-		<WrapperContext
-			methods={{
-				methods,
-				setMethods
-			}}>
+		<WrapperContext methods={navigationMethods}>
 			<div className='flex min-h-screen bg-emerald-50'>
 				<Navigation sectionIds={sectionIds} />
 

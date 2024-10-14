@@ -24,9 +24,9 @@ const FlatRadioButton = ({
 				id={id}
 				name={name}
 				value={value}
-				checked={checked} // Usa el valor de checked de las props
+				checked={checked}
 				onChange={onChange}
-				className='appearance-none w-4 h-4 border border-gray-300 rounded-full checked:bg-slate-600 checked:border-transparent focus:outline-none transition-all duration-200'
+				className='appearance-none w-4 h-4 border-2 border-gray-300 rounded-full checked:bg-slate-600 checked:border-transparent focus:outline-none transition-all duration-200'
 			/>
 			<label
 				className='font-semibold'

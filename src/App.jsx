@@ -1,9 +1,33 @@
-import "./App.css";
-import { RouterProvider } from "react-router-dom";
+import './App.css'
+import { useState } from 'react'
+import { RouterProvider } from 'react-router-dom'
 import router from './routes/routes'
+import { NotificationProvider } from './components/Notification/NotificationProvider'
+import { AlertDialogProvider } from './components/AlertDialog/AlertDialogProvider'
+import { WrapperNotification } from './hooks/wrapperFactory'
 
 function App() {
-	return <RouterProvider router={router} />;
+
+	const [notificationsMethods, setNotificationsMethods] = useState({
+		maxNotifications: 10,
+		position: 'bottom-right',
+		animation: 'fadeScale'
+	})
+
+	const myMethods = {
+		notificationsMethods,
+		setNotificationsMethods
+	}
+
+	return (
+		<WrapperNotification value={myMethods}>
+			<NotificationProvider setup={notificationsMethods}>
+				<AlertDialogProvider>
+					<RouterProvider router={router} />
+				</AlertDialogProvider>
+			</NotificationProvider>
+		</WrapperNotification>
+	)
 }
 
-export default App;
+export default App

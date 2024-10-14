@@ -7,7 +7,13 @@ import { useNotification } from '@/components/Notification/NotificationProvider'
 import Button from '@/components/Button/Button'
 import { useState } from 'react'
 
+import { useNotificationContext } from '@/hooks/wrapperFactory'
+
 const Demo = () => {
+  const { notificationsMethods, setNotificationsMethods } = useNotificationContext()
+
+	console.log('Demo methods ->', notificationsMethods)
+
 	const [setup, setSetup] = useState({
 		position: 'top-right',
 		variant: 'filled',
@@ -55,14 +61,19 @@ const Demo = () => {
 				{Object.entries(positionClasses).map(([key, value]) => (
 					<FlatRadioButton
 						key={value}
-						name='position' // Nombre común para los botones de posición
+            value={key}
+						name='position'
 						label={key}
-						checked={setup.position === value} // Verifica si es el valor seleccionado
-						onChange={() => setSetup((prev) => ({ ...prev, position: value }))} // Actualiza la posición
+						checked={notificationsMethods.position === key}
+						onChange={() => {
+              setNotificationsMethods((prev) => ({ ...prev, position: key }))
+            }}
 						variant='regular'
 					/>
 				))}
 			</div>
+
+      {/* setNotificationsMethods((prev) => ({ ...prev, position: value }) */}
 
 			<hr className='my-6 w-1/2 mx-auto' />
 
@@ -71,12 +82,12 @@ const Demo = () => {
 				{['filled', 'outlined', 'regular'].map((variant) => (
 					<FlatRadioButton
 						key={variant}
-						id={variant} // Asegúrate de que cada id sea único
-						name='variant' // Nombre común para todos los botones de radio
-						value={variant} // El valor que se está pasando
+						id={variant}
+						name='variant'
+						value={variant}
 						label={variant}
-						checked={setup.variant === variant} // Verifica si es el valor seleccionado
-						onChange={handleVariantChange} // Manejador actualizado
+						checked={setup.variant === variant}
+						onChange={handleVariantChange}
 						variant={variant}
 					/>
 				))}

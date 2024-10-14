@@ -16,7 +16,7 @@ const NotificationStack = ({
 	return (
 		<div
 			id='stack'
-			className={`fixed flex flex-col gap-2 ${positionClasses[position]} z-50`}>
+			className={`fixed flex flex-col gap-2 ${positionClasses[position]} z-[99999]`}>
 			{transitions((style, notification) => (
 				<animated.div
 					style={style}
