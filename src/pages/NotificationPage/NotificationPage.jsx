@@ -40,7 +40,7 @@ const NotificationPage = () => {
 
 						<section
 							id='usage'
-							className=' bg-emerald-100 rounded-lg mx-12 py-6 mb-12'>
+							className=' bg-emerald-100 rounded-lg mx-2 lg:mx-12  py-6 mb-12 shadow-lg'>
 							<div className='min-h-screen '>
 								<h2 className='text-3xl font-bold'>Notification Usage</h2>
 
@@ -88,7 +88,7 @@ const NotificationPage = () => {
 
 						<section
 							id='documentation'
-							className='bg-emerald-100 rounded-lg mx-12 py-6 mb-12'>
+							className='bg-emerald-100 rounded-lg mx-2 lg:mx-12  py-6 mb-12 shadow-lg'>
 							<div className='min-h-screen '>
 								<h2 className='text-3xl font-bold mb-6'>Documentation</h2>
 								<MarkdownRenderer path='/markdown/notification/readme.md' />

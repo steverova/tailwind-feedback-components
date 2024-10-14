@@ -39,7 +39,7 @@ const Demo = () => {
 	}
 
 	return (
-		<div className='bg-white mx-12 rounded-lg py-6'>
+		<div className='bg-white mx-2 lg:mx-12 rounded-lg p-0 py-6 shadow-lg'>
 			<div className='flex justify-center items-baseline text-line'>
 				<h1 className='text-5xl font-bold text-gray-800 mb-4'>
 					Stay Notified{' '}

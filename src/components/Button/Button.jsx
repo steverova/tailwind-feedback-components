@@ -51,11 +51,11 @@ const Button = ({
 }) => {
 	const buttonStyles = {
 		color: {
-			info: 'bg-blue-500 hover:bg-blue-600',
-			ok: 'bg-gray-500 hover:bg-gray-600',
-			danger: 'bg-red-600 hover:bg-red-700',
-			warning: 'bg-yellow-500 hover:bg-yellow-600',
-			success: 'bg-emerald-500 hover:bg-emerald-600'
+			info: ' hover:bg-blue-600',
+			ok: ' hover:bg-gray-600',
+			danger: ' hover:bg-red-700',
+			warning: ' hover:bg-yellow-600',
+			success: ' hover:bg-emerald-600'
 		},
 		rounded: {
 			none: 'rounded-none',
@@ -75,7 +75,13 @@ const Button = ({
 			lg: 'shadow-lg'
 		},
 		variant: {
-			filled: 'text-white',
+			filled: `text-white border-transparent 
+        ${color === 'info' ? 'bg-blue-500 hover:bg-blue-600' : ''}
+        ${color === 'ok' ? 'bg-gray-500 hover:bg-gray-600' : ''}
+        ${color === 'danger' ? 'bg-red-500 hover:bg-red-700' : ''}
+        ${color === 'warning' ? 'bg-yellow-500 hover:bg-yellow-600' : ''}
+        ${color === 'success' ? 'bg-emerald-500 hover:bg-emerald-600' : ''}
+        `,
 			outlined: `
         bg-transparent border 
         ${color === 'info' ? 'border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white' : ''}
@@ -103,7 +109,7 @@ const Button = ({
 	}
 
 	const className = `
-    ${variant === 'tonal' ? buttonStyles.variant.tonal : buttonStyles.color[color]} 
+    ${variant === 'tonal' && buttonStyles.variant.tonal} 
     ${buttonStyles.size[size]} 
     ${buttonStyles.elevation[elevation]} 
     ${
