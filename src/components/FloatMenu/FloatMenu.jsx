@@ -76,10 +76,10 @@ const FloatMenu = () => {
 	}
 
 	return (
-		<div className='relative flex w-full bg-emerald-300 justify-center items-center '>
+		<div className=' flex w-full bg-emerald-300 justify-center items-center over '>
 			<div className='fixed bottom-0 left-1/2 transform -translate-x-1/2'>
 				{openMenu && (
-					<div className='flex gap-2 bg-white text-white p-2 rounded-[28px] shadow-lg border-2 border-emerald-300 mb-3'>
+					<div className='flex gap-2 bg-white text-white p-2 rounded-[28px] shadow-lg border-2 border-emerald-300 mb-3 w-full overscroll-x-auto'>
 						<MenuItem
 							key='Home'
 							name='Home'
@@ -106,9 +106,9 @@ const FloatMenu = () => {
 
 				<div className='flex w-full  justify-center '>
 					<button
-					style={{
-						border: ''
-					}}
+						style={{
+							border: ''
+						}}
 						onClick={handleMenu}
 						type='button'
 						className='bg-emerald-50 shadow-lg  rounded-tl-[28px] rounded-tr-[28px] flex justify-center  w-44  group hover:bg-emerald-400 border-2 border-emerald-300 '>

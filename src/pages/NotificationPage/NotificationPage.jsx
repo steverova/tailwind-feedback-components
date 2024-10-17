@@ -20,17 +20,7 @@ const NotificationPage = () => {
 	return (
 		<WrapperContext methods={navigationMethods}>
 			<div className='flex min-h-screen bg-emerald-50'>
-				<Navigation sectionIds={sectionIds} />
-
-				<div className='static flex-1 ml-0 lg:ml-32 overflow-y-auto'>
-					<div className='sm:block md:hidden absolute top-15 left-0 right-0 bg-emerald-100 text-end z-50 me-12'>
-						<div className='flex flex-row justify-end items-end content-end me-10 mt-1'>
-							<PopoverButton title='Navigation'>
-								<NavList sectionIds={sectionIds} />
-							</PopoverButton>
-						</div>
-					</div>
-
+				<div className='static flex-1  overflow-y-auto'>
 					<div className=' text-center items-center'>
 						<section
 							id='demo'

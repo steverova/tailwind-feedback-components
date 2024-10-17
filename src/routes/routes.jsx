@@ -16,7 +16,7 @@ const routes = [
 
 	{
 		path: 'pages',
-		element: <MainLayout />,
+		
 		children: [
 			{
 				index: true,
