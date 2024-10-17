@@ -7,6 +7,7 @@ import Home from '../pages/Home'
 import ModalPage from '../pages/ModalPage'
 import NotificationPage from '../pages/NotificationPage/NotificationPage'
 import WrapperContextPage from '../pages/WrapperContextPage'
+import FloatMenu from '@/components/FloatMenu/FloatMenu'
 
 const routes = [
 	{
@@ -16,7 +17,7 @@ const routes = [
 
 	{
 		path: 'pages',
-		
+		element: <FloatMenu />,
 		children: [
 			{
 				index: true,

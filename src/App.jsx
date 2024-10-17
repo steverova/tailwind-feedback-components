@@ -25,7 +25,7 @@ function App() {
 			<NotificationProvider setup={notificationsMethods}>
 				<AlertDialogProvider>
 					<RouterProvider router={router} />
-					<FloatMenu/>
+					{/* <FloatMenu/> */}
 				</AlertDialogProvider>
 			</NotificationProvider>
 		</WrapperNotification>
