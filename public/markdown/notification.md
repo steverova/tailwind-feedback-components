@@ -51,23 +51,5 @@ Este conjunto de componentes permite manejar y mostrar un stack de notificacione
 | `slideUp`         | La notificación entra desde abajo y se mueve hacia arriba con transición de opacidad.                  |
 | `rotateFade`      | La notificación rota mientras aparece y desaparece con una transición de opacidad.                     |
 
-## Uso
 
-1. Envuelve tu aplicación con el `NotificationProvider`:
 
-```jsx
-import { NotificationProvider } from './NotificationProvider'
-
-function App() {
-  return (
-    <NotificationProvider setup={{
-      maxNotifications: 10,
-      position: 'bottom-right',
-      animation: 'fadeScale'
-    }}>
-      <YourAppComponents />
-    </NotificationProvider>
-  )
-}
-
-export default App

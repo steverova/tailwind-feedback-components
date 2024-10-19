@@ -46,13 +46,15 @@
 
 li > code {
   background-color: #10b98144;
+ 
 
 }
 
 .markdown code {
-  
+  font-size: 13px;
   padding: 0.2em 0.4em;
   border-radius: 4px;
+  font-weight: 500;
   font-family: 'Courier New', Courier, monospace;
 }
 

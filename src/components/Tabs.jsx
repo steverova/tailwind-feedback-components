@@ -51,12 +51,12 @@ function Tabs({ tabs = [] }) {
 				</div>
 			</div>
 
-			<div className='mt-3 overflow-x-auto'>
+			<div className=''>
 				{tabs.map((tab, index) => (
 					<div key={tab.id}>
 						{currentTab === index && (
 							<div
-								className='flex flex-row'
+								
 								id={`segment-${index}`}
 								role='tabpanel'
 								aria-labelledby={`segment-item-${index}`}>
