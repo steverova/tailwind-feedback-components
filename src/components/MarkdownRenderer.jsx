@@ -86,8 +86,10 @@ const MarkdownViewer = ({ path = '' }) => {
 		const codeContent = extractText(children)
 
 		return (
-			<pre className='blog-pre'>
-				<CodeCopyBtn code={codeContent} />
+			<pre className='blog-pre relative'>
+				<div className='relative ri'>
+					<CodeCopyBtn code={codeContent} />
+				</div>
 				{children}
 			</pre>
 		)
@@ -99,9 +101,8 @@ const MarkdownViewer = ({ path = '' }) => {
 
 	return (
 		<div
-			className={`markdown px-2 rounded-[24px] ${isContentVisible ? 'fade-in' : ''} break-words`}>
+			className={`markdown  rounded-[24px] ${isContentVisible ? 'fade-in' : ''} break-words`}>
 			<ReactMarkdown
-				
 				remarkPlugins={[remarkGfm]}
 				rehypePlugins={[rehypeHighlight]}
 				components={{

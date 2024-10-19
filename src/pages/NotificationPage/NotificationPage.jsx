@@ -27,7 +27,7 @@ const Tabs = ({ tabs }) => {
 					</button>
 				))}
 			</div>
-			<div className='p-4'>
+			<div className='px-1 sm:px-1 lg:px-4'>
 				<div>{tabs[activeTab].content}</div>
 			</div>
 		</div>
@@ -51,7 +51,7 @@ const NotificationPage = () => {
 					backgroundImage:
 						'linear-gradient(to right bottom, #ffffff, #dfe7f7, #aed4ed, #72c4d7, #2fb2b1, #2fb2b1, #2fb2b1, #2fb2b1, #72c4d7, #aed4ed, #dfe7f7, #ffffff)'
 				}}
-				className='flex min-h-screen  mb-24 '>
+				className='flex min-h-screen pb-12 '>
 				<Navigation sectionIds={sectionIds} />
 
 				<div className='static flex-1 ml-0 lg:ml-32 overflow-y-auto'>
@@ -118,7 +118,7 @@ const NotificationPage = () => {
 
 						<section
 							id='documentation'
-							className='bg-white bg-opacity-50 rounded-[24px] p-0 py-6 mt-12'>
+							className='bg-white bg-opacity-50 rounded-[24px] p-0 py-6 mt-12 px-4'>
 							<MarkdownRenderer path='/markdown/notification/documentation.md' />
 						</section>
 
