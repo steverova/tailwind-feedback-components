@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { ChevronDownIcon } from 'lucide-react'
 
-const PopoverButton = ({ children, title = 'title' }) => {
+const PopoverButton = ({ children, title = 'title', popoverClasses }) => {
 	const [isPopoverVisible, setPopoverVisible] = useState(false)
 
 	const togglePopover = () => {
@@ -26,9 +26,15 @@ const PopoverButton = ({ children, title = 'title' }) => {
 			</button>
 
 			{isPopoverVisible && (
-				<div className='absolute p-4 font-sans text-sm font-normal break-words whitespace-normal bg-white border rounded-lg shadow-lg w-max border-blue-gray-50 text-blue-gray-500 shadow-blue-gray-500/10 focus:outline-none mt-1 '>
-					{children}
-				</div>
+				<div
+				style={{
+					backdropFilter: 'blur(50px)',
+					backgroundColor: 'rgba(255, 255, 255, 0.8)', // Fondo semi-transparente
+				}}
+				className={`absolute p-4 font-sans text-sm font-normal break-words whitespace-normal shadow-lg rounded-lg w-max focus:outline-none mt-3 ${popoverClasses}`}>
+				{children}
+			</div>
+			
 			)}
 		</div>
 	)

@@ -16,10 +16,10 @@ const Tabs = ({ tabs }) => {
 				{tabs.map((tab, index) => (
 					<button
 						type='button'
-						key={index}
-						className={`hover:bg-emerald-100 hover:text-emerald-600 hover:border-white-500  px-4 py-2 text-sm font-medium focus:outline-none ${
+						key={tab.id}
+						className={`hover:bg-teal-100 hover:text-teal-600 hover:border-white-500  px-4 py-2 text-sm font-medium focus:outline-none rounded-t-lg ${
 							activeTab === index
-								? 'border-b-2 border-emerald-500 text-emerald-500'
+								? 'border-b-2 border-teal-500 text-teal-500'
 								: 'text-gray-600'
 						}`}
 						onClick={() => setActiveTab(index)}>
