@@ -17,8 +17,9 @@ const Demo = () => {
 
 	const [setup, setSetup] = useState({
 		position: 'top-right',
-		variant: 'filled',
-		behavior: 'autoHide'
+		variant: 'tonal',
+		behavior: 'autoHide',
+		rounded: 'full'
 	})
 	const { notificationHandler } = useNotification()
 
