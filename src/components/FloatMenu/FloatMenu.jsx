@@ -9,11 +9,11 @@ const size = 20
 const MenuItem = ({ icon, name, path }) => (
 	<div
 		key={name}
-		className='bg-emerald-50 group hover:bg-emerald-400  rounded-[24px] p-2 '>
+		className='bg-emerald-50 group hover:bg-emerald-400 rounded-[24px] p-2'>
 		<a
 			href={path}
 			type='button'
-			className='flex flex-col  items-center px-3 group'>
+			className='flex flex-col items-center px-3 group'>
 			{icon}
 			<small className='text-emerald-600 font-semibold group-hover:text-white'>
 				{name}
@@ -30,7 +30,6 @@ const FloatMenu = () => {
 	const navigation = [
 		{
 			name: 'Menu',
-
 			icon: (
 				<Menu
 					size={size}
@@ -80,11 +79,11 @@ const FloatMenu = () => {
 
 	return (
 		<>
-			<div className=' w-full  justify-center items-center overscroll-x-auto scroll-smooth bg-orange-200'>
-				<div className='fixed bottom-0 left-1/2 transform -translate-x-1/2 overscroll-x-auto'>
+			<div className='  '>
+				<div className='fixed bottom-0 left-1/2 transform -translate-x-1/2 w-screen '>
 					{openMenu && (
-						<div className='flex w-full gap-2 bg-white text-white p-2 rounded-[28px] shadow-lg border-2 border-emerald-300 mb-3  overscroll-x-auto  '>
-							<div className='flex flex-row  overflow-x-auto'>
+						<div className='flex  justify-center items-center gap-2 bg-white text-white p-2 rounded-[28px] shadow-lg border-2 border-emerald-300 mb-3 '>
+							<div className='  flex justify-center items-center flex-row   bg-red-400 overflow-x-scroll  rounded-[28px] '>
 								<MenuItem
 									key='Home'
 									name='Home'
@@ -97,7 +96,7 @@ const FloatMenu = () => {
 									}
 								/>
 
-								<div className='h-10 w-[2px] bg-emerald-300 mx-auto my-2 ' />
+								<div className='h-10 w-[2px] bg-emerald-300 mx-auto my-2' />
 
 								{navigation.map((item) => (
 									<MenuItem
@@ -111,23 +110,20 @@ const FloatMenu = () => {
 						</div>
 					)}
 
-					<div className='flex w-full  justify-center '>
+					<div className='flex w-full justify-center'>
 						<button
-							style={{
-								border: ''
-							}}
 							onClick={handleMenu}
 							type='button'
-							className='bg-emerald-50 shadow-lg  rounded-tl-[28px] rounded-tr-[28px] flex justify-center  w-44  group hover:bg-emerald-400 border-2 border-emerald-300 '>
+							className='bg-emerald-50 shadow-lg rounded-tl-[28px] rounded-tr-[28px] flex justify-center w-44 group hover:bg-emerald-400 border-2 border-emerald-300'>
 							<ChevronUp
-								className={`text-emerald-600 group-hover:text-white ${openMenu ? 'rotate-180' : 'animate-bounce'} `}
+								className={`text-emerald-600 group-hover:text-white ${openMenu ? 'rotate-180' : 'animate-bounce'}`}
 							/>
 						</button>
 					</div>
 				</div>
 
 				{isOpen && (
-					<div className='fixed bottom-28  left-1/2 -translate-x-1/2 bg-white border border-gray-300 rounded-lg shadow-xl  p-2 transition-transform duration-300 ease-in-out transform translate-y-0 flex'>
+					<div className='fixed bottom-28 left-1/2 -translate-x-1/2 bg-white border border-gray-300 rounded-lg shadow-xl p-2'>
 						{[
 							'Button',
 							'Alert Dialog',

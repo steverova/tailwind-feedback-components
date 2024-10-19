@@ -25,7 +25,7 @@ const Demo = () => {
 		await notificationHandler(`${type} notification`, {
 			type: type,
 			variant: setup.variant,
-			behavior: setup.behavior // Asegúrate de que esté usando el estado
+			behavior: setup.behavior 
 		})
 	}
 
@@ -33,8 +33,6 @@ const Demo = () => {
 
 	const handleVariantChange = (event) => {
 		const { name, value } = event.target
-
-		// Actualiza la variante o el comportamiento según el nombre
 		setSetup((prev) => ({ ...prev, [name]: value }))
 	}
 

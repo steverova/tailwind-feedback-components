@@ -38,20 +38,24 @@ const NotificationPage = () => {
 							<Demo />
 						</section>
 
+						<MarkdownRenderer path='/markdown/notification.md' />
+
 						<section
 							id='usage'
 							className=' bg-emerald-100 rounded-lg mx-2 lg:mx-12  py-6 mb-12 shadow-lg'>
 							<div className='min-h-screen '>
 								<h2 className='text-3xl font-bold'>Notification Usage</h2>
 
-								<Tabs
+								<MarkdownRenderer path='/markdown/notification.md' />
+
+								{/* <Tabs
 									tabs={[
 										{
 											id: 'tab-0',
 											title: 'How to use',
 											content: (
 												<div className='flex flex-col'>
-													<MarkdownRenderer path='/markdown/notification/howtouse/introduction.md' />
+													<MarkdownRenderer path='/markdown/notification.md' />
 													<MarkdownRenderer path='/markdown/notification/howtouse/code01.md' />
 													<MarkdownRenderer path='/markdown/notification/howtouse/introduction02.md' />
 													<MarkdownRenderer path='/markdown/notification/howtouse/code02.md' />
@@ -91,7 +95,7 @@ const NotificationPage = () => {
 											)
 										}
 									]}
-								/>
+								/> */}
 							</div>
 						</section>
 
