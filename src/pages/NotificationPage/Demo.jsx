@@ -10,7 +10,8 @@ import { useState } from 'react'
 import { useNotificationContext } from '@/hooks/wrapperFactory'
 
 const Demo = () => {
-  const { notificationsMethods, setNotificationsMethods } = useNotificationContext()
+	const { notificationsMethods, setNotificationsMethods } =
+		useNotificationContext()
 
 	console.log('Demo methods ->', notificationsMethods)
 
@@ -25,7 +26,7 @@ const Demo = () => {
 		await notificationHandler(`${type} notification`, {
 			type: type,
 			variant: setup.variant,
-			behavior: setup.behavior 
+			behavior: setup.behavior
 		})
 	}
 
@@ -37,7 +38,7 @@ const Demo = () => {
 	}
 
 	return (
-		<div className='bg-white mx-2 lg:mx-12 rounded-lg p-0 py-6 shadow-lg'>
+		<div className='bg-white bg-opacity-50 rounded-[24px] p-0 py-6'>
 			<div className='flex justify-center items-baseline text-line'>
 				<h1 className='text-5xl font-bold text-gray-800 mb-4'>
 					Stay Notified{' '}
@@ -59,19 +60,19 @@ const Demo = () => {
 				{Object.entries(positionClasses).map(([key, value]) => (
 					<FlatRadioButton
 						key={value}
-            value={key}
+						value={key}
 						name='position'
 						label={key}
 						checked={notificationsMethods.position === key}
 						onChange={() => {
-              setNotificationsMethods((prev) => ({ ...prev, position: key }))
-            }}
+							setNotificationsMethods((prev) => ({ ...prev, position: key }))
+						}}
 						variant='regular'
 					/>
 				))}
 			</div>
 
-      {/* setNotificationsMethods((prev) => ({ ...prev, position: value }) */}
+			{/* setNotificationsMethods((prev) => ({ ...prev, position: value }) */}
 
 			<hr className='my-6 w-1/2 mx-auto' />
 

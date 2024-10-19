@@ -46,7 +46,9 @@ const NotificationPage = () => {
 
 	return (
 		<WrapperContext methods={navigationMethods}>
-			<div className='flex min-h-screen bg-emerald-50 mb-24 '>
+			<div style={{
+				backgroundImage: 'linear-gradient(to right bottom, #ffffff, #dfe7f7, #aed4ed, #72c4d7, #2fb2b1, #2fb2b1, #2fb2b1, #2fb2b1, #72c4d7, #aed4ed, #dfe7f7, #ffffff)'
+			}} className='flex min-h-screen  mb-24 '>
 				<Navigation sectionIds={sectionIds} />
 
 				<div className='static flex-1 ml-0 lg:ml-32 overflow-y-auto'>
@@ -58,21 +60,21 @@ const NotificationPage = () => {
 						</div>
 					</div>
 
-					<div className=' text-center items-center container mx-auto'>
+					<div className=' text-center items-center sm:container mx-auto '>
 						<section
 							id='demo'
 							className='py-12'>
 							<Demo />
 						</section>
 
-						<div >
+						<section id='usage' className='bg-white bg-opacity-50 rounded-[24px] p-0 py-6' >
 							<Tabs
 								tabs={[
 									{
 										id: 'tab-0',
-										title: 'How to use',
+										title: 'Usage',
 										content: (
-											<MarkdownRenderer path='/markdown/notification/howtouse/introduction.md' />
+											<MarkdownRenderer path='/markdown/notification/HowToUse.md' />
 										)
 									},
 									{
@@ -105,9 +107,11 @@ const NotificationPage = () => {
 									}
 								]}
 							/>
-						</div>
+						</section>
 
-						<MarkdownRenderer path='/markdown/notification.md' />
+						<section id='documentation' className='bg-white bg-opacity-50 rounded-[24px] p-0 py-6 mt-12'>
+						<MarkdownRenderer path='/markdown/notification/documentation.md' />
+						</section>
 
 						{/* <section
 							id='usage'
