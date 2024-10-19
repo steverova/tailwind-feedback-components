@@ -108,7 +108,7 @@ const Button = ({
 		}
 	}
 
-	const className = `
+	const className = `min-w-[90px]
     ${variant === 'tonal' && buttonStyles.variant.tonal} 
     ${buttonStyles.size[size]} 
     ${buttonStyles.elevation[elevation]} 
@@ -133,7 +133,7 @@ const Button = ({
 			className={className}
 			onClick={onClick}
 			disabled={disabled || loading}>
-			<span className='flex flex-row items-center'>
+			<span className='flex flex-row items-center text-center'>
 				{loading ? (
 					<>
 						<LoaderIcon

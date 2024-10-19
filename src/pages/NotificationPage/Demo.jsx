@@ -117,6 +117,7 @@ const Demo = () => {
 			<div className='flex flex-row flex-wrap gap-4 justify-center'>
 				{array.map((type) => (
 					<Button
+						rounded='full'
 						variant={setup.variant === 'regular' ? 'text' : setup.variant}
 						key={type.label}
 						color={type.label.toLowerCase()}

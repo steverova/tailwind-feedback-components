@@ -11,8 +11,8 @@ const Tabs = ({ tabs }) => {
 	const [activeTab, setActiveTab] = useState(0)
 
 	return (
-		<div className='w-full'>
-			<div className='flex border-b border-gray-200'>
+		<div className='w-full overflow-x-hidden'>
+			<div className='flex border-b border-gray-200 overflow-x-auto'>
 				{tabs.map((tab, index) => (
 					<button
 						type='button'
@@ -60,7 +60,7 @@ const NotificationPage = () => {
 						</div>
 					</div>
 
-					<div className=' text-center items-center sm:container mx-auto '>
+					<div className=' text-center items-center container mx-auto px-1'>
 						<section
 							id='demo'
 							className='py-12'>
