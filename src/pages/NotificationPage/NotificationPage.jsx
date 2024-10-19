@@ -46,14 +46,19 @@ const NotificationPage = () => {
 
 	return (
 		<WrapperContext methods={navigationMethods}>
-			<div style={{
-				backgroundImage: 'linear-gradient(to right bottom, #ffffff, #dfe7f7, #aed4ed, #72c4d7, #2fb2b1, #2fb2b1, #2fb2b1, #2fb2b1, #72c4d7, #aed4ed, #dfe7f7, #ffffff)'
-			}} className='flex min-h-screen  mb-24 '>
+			<div
+				style={{
+					backgroundImage:
+						'linear-gradient(to right bottom, #ffffff, #dfe7f7, #aed4ed, #72c4d7, #2fb2b1, #2fb2b1, #2fb2b1, #2fb2b1, #72c4d7, #aed4ed, #dfe7f7, #ffffff)'
+				}}
+				className='flex min-h-screen  mb-24 '>
 				<Navigation sectionIds={sectionIds} />
 
 				<div className='static flex-1 ml-0 lg:ml-32 overflow-y-auto'>
-					<div className='sm:block md:hidden absolute top-15 left-0 right-0 bg-emerald-100 text-end z-50 me-12'>
-						<div className='flex flex-row justify-end items-end content-end me-10 mt-1'>
+
+					
+					<div className='sm:block md:hidden fixed top-15 left-0 w-full  py-2 backdrop-blur-lg text-end z-50'>
+						<div className='flex flex-row justify-start items-end  ms-5 mt-1'>
 							<PopoverButton title='Navigation'>
 								<NavList sectionIds={sectionIds} />
 							</PopoverButton>
@@ -67,7 +72,9 @@ const NotificationPage = () => {
 							<Demo />
 						</section>
 
-						<section id='usage' className='bg-white bg-opacity-50 rounded-[24px] p-0 py-6' >
+						<section
+							id='usage'
+							className='bg-white bg-opacity-50 rounded-[24px] p-0 py-6'>
 							<Tabs
 								tabs={[
 									{
@@ -109,75 +116,11 @@ const NotificationPage = () => {
 							/>
 						</section>
 
-						<section id='documentation' className='bg-white bg-opacity-50 rounded-[24px] p-0 py-6 mt-12'>
-						<MarkdownRenderer path='/markdown/notification/documentation.md' />
-						</section>
-
-						{/* <section
-							id='usage'
-							className=' bg-emerald-100 rounded-lg mx-2 lg:mx-12  py-6 mb-12 shadow-lg'>
-							<div className='min-h-screen '>
-								<h2 className='text-3xl font-bold'>Notification Usage</h2>
-
-								<Tabs
-									tabs={[
-										{
-											id: 'tab-0',
-											title: 'How to use',
-											content: (
-												< >
-													<MarkdownRenderer path='/markdown/notification.md' />
-													<MarkdownRenderer path='/markdown/notification/howtouse/code01.md' />
-													<MarkdownRenderer path='/markdown/notification/howtouse/introduction02.md' />
-													<MarkdownRenderer path='/markdown/notification/howtouse/code02.md' />
-
-													<MarkdownRenderer path='/markdown/notification/howtouse/introduction03.md' />
-
-													<MarkdownRenderer path='/markdown/notification/howtouse/code03.md' />
-												</>
-											)
-										},
-										{
-											id: 'tab-1',
-											title: 'NotificationStack.jsx',
-											content: (
-												<MarkdownRenderer path='/markdown/notification/NotificationStack.md' />
-											)
-										},
-										{
-											id: 'tab-2',
-											title: 'Notification.jsx',
-											content: (
-												<MarkdownRenderer path='/markdown/notification/Notification.md' />
-											)
-										},
-										{
-											id: 'tab-3',
-											title: 'NotificationProvider.jsx',
-											content: (
-												<MarkdownRenderer path='/markdown/notification/NotificationProvider.md' />
-											)
-										},
-										{
-											id: 'tab-4',
-											title: 'Types.jsx',
-											content: (
-												<MarkdownRenderer path='/markdown/notification/Types.md' />
-											)
-										}
-									]}
-								/>
-							</div>
-						</section>
-
 						<section
 							id='documentation'
-							className='bg-emerald-100 rounded-lg mx-2 lg:mx-12  py-6 mb-12 shadow-lg'>
-							<div className='min-h-screen '>
-								<h2 className='text-3xl font-bold mb-6'>Documentation</h2>
-								<MarkdownRenderer path='/markdown/notification/readme.md' />
-							</div>
-						</section> */}
+							className='bg-white bg-opacity-50 rounded-[24px] p-0 py-6 mt-12'>
+							<MarkdownRenderer path='/markdown/notification/documentation.md' />
+						</section>
 
 						<hr />
 					</div>

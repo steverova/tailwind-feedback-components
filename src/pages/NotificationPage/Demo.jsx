@@ -13,11 +13,9 @@ const Demo = () => {
 	const { notificationsMethods, setNotificationsMethods } =
 		useNotificationContext()
 
-	console.log('Demo methods ->', notificationsMethods)
-
 	const [setup, setSetup] = useState({
 		position: 'top-right',
-		variant: 'tonal',
+		variant: 'filled',
 		behavior: 'autoHide',
 		rounded: 'full'
 	})

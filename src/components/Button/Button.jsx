@@ -133,7 +133,7 @@ const Button = ({
 			className={className}
 			onClick={onClick}
 			disabled={disabled || loading}>
-			<span className='flex flex-row items-center text-center'>
+			<span className='flex flex-row items-center justify-center'>
 				{loading ? (
 					<>
 						<LoaderIcon
@@ -143,11 +143,11 @@ const Button = ({
 						<span>{loadingText}</span>
 					</>
 				) : (
-					<>
+					<div className='text-center'>
 						{startIcon && <span className='mr-2'>{startIcon}</span>}
 						{children}
 						{endIcon && <span className='ml-2'>{endIcon}</span>}
-					</>
+					</div>
 				)}
 			</span>
 		</button>
