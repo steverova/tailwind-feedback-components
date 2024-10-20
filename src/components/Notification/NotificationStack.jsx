@@ -13,10 +13,12 @@ const NotificationStack = ({
 		...notificationAnimations[animation]
 	})
 
+	const istop = position.includes('top')
+
 	return (
 		<div
 			id='stack'
-			className={`fixed flex flex-col gap-2 ${positionClasses[position]} z-[99999]`}>
+			className={`fixed flex gap-2  ${istop ? 'flex-col-reverse' : 'flex-col'}  ${positionClasses[position]} z-[99999]`}>
 			{transitions((style, notification) => (
 				<animated.div
 					style={style}

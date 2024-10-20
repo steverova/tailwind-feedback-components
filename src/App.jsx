@@ -17,8 +17,10 @@ function App() {
 
 	const myMethods = {
 		notificationsMethods,
-		setNotificationsMethods
+		setNotificationsMethods,
+		suma: (a, b) => a + b
 	}
+
 
 	return (
 		<WrapperNotification value={myMethods}>
