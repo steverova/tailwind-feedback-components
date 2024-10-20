@@ -67,7 +67,7 @@ const NotificationPage = () => {
 						</div>
 					</div>
 
-					<div className=' text-center items-center container mx-auto px-1'>
+					<div className=' text-center items-center sm:w-full md:w-3/4 lg:w-3/5 mx-auto px-1'>
 						<section
 							id='demo'
 							className='py-12'>
