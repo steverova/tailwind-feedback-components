@@ -44,10 +44,10 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 						<button
 							onClick={() => closeNotification(id)}
 							type='button'
-							className='bg-slate-100 hover:bg-slate-300 p-1 rounded-full border-2 shadow-lg'>
+							className='bg-slate-100 hover:bg-slate-300 rounded-full border-2 shadow-lg'>
 							<XIcon
 								className={`${types[type].text}`}
-								size={12}
+								size={10}
 							/>
 						</button>
 					)}
@@ -66,13 +66,13 @@ const Notification = ({ closeNotification, options, isOpen = false }) => {
 
 				<div className='flex flex-row my-3 items-center gap-3 me-6 min-w-52'>
 					<div
-						className={`h-10 w-10 flex items-center justify-center rounded-full ${types[type].color}`}>
+						className={`h-6 w-6 flex items-center justify-center rounded-full ${types[type].color}`}>
 						{types[type].icon}
 					</div>
 
 					<div>
 						<h3
-							className={`text-left font-semibold w-full items-center ${
+							className={`text-left font-medium w-full items-center ${
 								variant === 'filled'
 									? 'text-white'
 									: 'text-gray-700 dark:text-neutral-800'

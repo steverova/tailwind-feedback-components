@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Menu, Pointer, BookOpen, Wrench } from 'lucide-react'
+import { Pointer, BookOpen, Wrench } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
+import { Home } from 'lucide-react'
 
 const style = 'text-slate-200 group-hover:text-white transition-colors duration-300' // Añadida transición
 const size = 20
@@ -36,11 +37,10 @@ const FloatMenu = () => {
 
   const navigation = [
     {
-      name: 'Menu',
-      path: '/menu',
-      sectionId: 'menu',
+      name: 'Home',
+      path: '/',
       icon: (
-        <Menu
+        <Home
           size={size}
           className={style}
         />

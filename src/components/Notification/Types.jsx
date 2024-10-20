@@ -6,7 +6,7 @@ import {
 	OctagonAlertIcon
 } from 'lucide-react'
 
-const SIZE = 25
+const SIZE = 20
 export const types = {
 	info: {
 		label: 'Info',
