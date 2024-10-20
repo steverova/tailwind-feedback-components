@@ -9,13 +9,13 @@ const size = 20
 const MenuItem = ({ icon, name, path }) => (
 	<div
 		key={name}
-		className='bg-emerald-50 group hover:bg-emerald-400 rounded-[18px] p-2'>
+		className='bg-emerald-50 group hover:bg-emerald-400 rounded-[18px] p-2 '>
 		<a
 			href={path}
 			type='button'
-			className='flex flex-col items-center px-3 group'>
+			className='flex flex-col items-center group'>
 			{icon}
-			<small className='text-emerald-600 font-semibold group-hover:text-white'>
+			<small className='text-emerald-600 font-semibold group-hover:text-white text-xs '>
 				{name}
 			</small>
 		</a>
@@ -80,7 +80,7 @@ const FloatMenu = () => {
 	return (
 		<>
 			<nav
-				class='~pb-6/10 pointer-events-none fixed bottom-2 left-0 z-10 w-full pt-12 '
+				class='~pb-6/10 pointer-events-none fixed bottom-2 left-0 z-10 w-full pt-12 mx-3'
 				id='nav'>
 				<div class='bg-mask-white dark:bg-mask-zinc-950 absolute bottom-0 left-0 right-0 h-[13rem] w-full ' />
 				<div class=' flex justify-center'>
