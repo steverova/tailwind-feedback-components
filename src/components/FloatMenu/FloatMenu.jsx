@@ -1,28 +1,28 @@
 import { useState, useEffect } from 'react'
-import { House, Menu, Pointer, BookOpen, Wrench } from 'lucide-react'
+import { Menu, Pointer, BookOpen, Wrench } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 
-const style = 'text-slate-200 group-hover:text-white'
+const style = 'text-slate-200 group-hover:text-white transition-colors duration-300' // Añadida transición
 const size = 20
 
 const MenuItem = ({ icon, name, path, isActive, onClick }) => {
   return (
     <div
       key={name}
-      className={`group hover:bg-emerald-800/90 rounded-[18px] p-2 min-w-16 ${
+      className={`group hover:bg-emerald-800/90 rounded-[18px] p-2 min-w-16 transition-all duration-300 ${
         isActive ? 'bg-emerald-800/90' : ''
-      }`}>
+      }`}> {/* Transición agregada para cambiar de fondo */}
       <a
-        href={path}
+				href={path}
         type='button'
         className='flex flex-col items-center group'
         onClick={onClick}>
         {icon}
         <small
-          className={`text-slate-200 font-semibold group-hover:text-white text-xs ${
+          className={`text-slate-200 font-semibold group-hover:text-white text-xs transition-colors duration-300 ${
             isActive ? 'text-white' : ''
-          }`}>
+          }`}> {/* Transición añadida para el cambio de color del texto */}
           {name}
         </small>
       </a>
@@ -31,16 +31,14 @@ const MenuItem = ({ icon, name, path, isActive, onClick }) => {
 }
 
 const FloatMenu = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [openMenu, setOpenMenu] = useState(false)
-  const [activeMenu, setActiveMenu] = useState(
-    localStorage.getItem('activeMenu') || 'Menu'
-  )
+  const [activeMenu, setActiveMenu] = useState('Menu')
   const navigate = useNavigate()
 
   const navigation = [
     {
       name: 'Menu',
+      path: '/menu',
+      sectionId: 'menu',
       icon: (
         <Menu
           size={size}
@@ -51,6 +49,7 @@ const FloatMenu = () => {
     {
       name: 'Demo',
       path: '/pages/notification#demo',
+      sectionId: 'demo',
       icon: (
         <Pointer
           size={size}
@@ -61,6 +60,7 @@ const FloatMenu = () => {
     {
       name: 'Usage',
       path: '/pages/notification#usage',
+      sectionId: 'usage',
       icon: (
         <Wrench
           size={size}
@@ -71,6 +71,7 @@ const FloatMenu = () => {
     {
       name: 'Docs',
       path: '/pages/notification#documentation',
+      sectionId: 'documentation',
       icon: (
         <BookOpen
           size={size}
@@ -80,18 +81,34 @@ const FloatMenu = () => {
     }
   ]
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
+  const handleScroll = () => {
+    const sections = document.querySelectorAll('section')
+
+    window.onscroll = () => {
+      const top = window.scrollY
+
+      for (const section of sections) {
+        const offset = section.offsetTop - 100
+        const height = section.offsetHeight
+        const id = section.getAttribute('id')
+
+        if (top >= offset && top < offset + height) {
+          const activeItem = navigation.find((item) => item.sectionId === id)
+          if (activeItem) {
+            setActiveMenu(activeItem.name)
+          }
+        }
+      }
+    }
   }
 
-  const handleMenu = () => {
-    setOpenMenu(!openMenu)
-  }
+  useEffect(() => {
+    handleScroll()
+  }, [])
 
-  // Función para manejar el cambio de menú
-  const handleMenuClick = (name) => {
+  const handleMenuClick = (name, path) => {
     setActiveMenu(name)
-    localStorage.setItem('activeMenu', name) // Guardar en localStorage
+    navigate(path)
   }
 
   return (
@@ -110,8 +127,8 @@ const FloatMenu = () => {
                     path={item.path}
                     name={item.name}
                     icon={item.icon}
-                    isActive={activeMenu === item.name} // Comparar con el estado actual
-                    onClick={() => handleMenuClick(item.name)} // Cambiar menú activo
+                    isActive={activeMenu === item.name}
+                    onClick={() => handleMenuClick(item.name, item.path)}
                   />
                 ))}
               </div>

@@ -14,33 +14,67 @@ const Navigation = ({ sectionIds, alignment = 'right' }) => {
 		localStorage.setItem('activeNavItem', item)
 	}
 
-	useEffect(() => {
-		const targets = sectionIds
-			.map((id) => document.getElementById(id))
-			.filter(Boolean)
+	const handleScroll = () => {
+		const sections = document.querySelectorAll('section')
+		const navLinks = document.querySelectorAll('ul li a')
 
-		const callback = (entries) => {
-			for (const entry of entries) {
-				if (entry.isIntersecting) {
-					setActiveItem(entry.target.id)
+		window.onscroll = () => {
+			for (const section of sections) {
+
+				console.log('section ->', section)
+
+				const top = window.scrollY
+				const offset = section.offsetTop - 100
+				const height = section.offsetHeight
+				const id = section.getAttribute('id')
+
+				if (top >= offset && top < offset + height) {
+					for (const navLink of document.querySelectorAll('ul li a')) {
+						navLink.classList.remove('text-emerald-600')
+						navLink.classList.remove('border-emerald-600')
+						if (navLink.getAttribute('href').slice(1) === id) {
+							navLink.classList.add('text-emerald-600')
+							navLink.classList.add('border-emerald-600')
+						}
+					}
 				}
 			}
 		}
 
-		const observer = new IntersectionObserver(callback, {
-			threshold: 0.5
-		})
+		console.log('navLinks ->', navLinks)
+	}
 
-		for (const target of targets) {
-			observer.observe(target)
-		}
-
-		return () => {
-			for (const target of targets) {
-				observer.unobserve(target)
-			}
-		}
+	useEffect(() => {
+		handleScroll()
 	}, [])
+
+	// useEffect(() => {
+	// 	const targets = sectionIds
+	// 		.map((id) => document.getElementById(id))
+	// 		.filter(Boolean)
+
+	// 	const callback = (entries) => {
+	// 		for (const entry of entries) {
+	// 			if (entry.isIntersecting) {
+	// 				setActiveItem(entry.target.id)
+	// 			}
+	// 		}
+	// 	}
+
+	// 	const observer = new IntersectionObserver(callback, {
+	// 		threshold: 0.5
+	// 	})
+
+	// 	for (const target of targets) {
+	// 		observer.observe(target)
+	// 	}
+
+	// 	return () => {
+	// 		for (const target of targets) {
+	// 			observer.unobserve(target)
+	// 		}
+	// 	}
+	// }, [])
 
 	useEffect(() => {
 		setMethods({
