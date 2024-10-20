@@ -22,7 +22,7 @@ const Demo = () => {
 	const { notificationHandler } = useNotification()
 
 	const handleNotification = async (type) => {
-		await notificationHandler(`${type} notification ZZZZ QWERTY `, {
+		await notificationHandler(`${type} notification `, {
 			type: type,
 			variant: setup.variant,
 			behavior: setup.behavior
