@@ -9,7 +9,7 @@ const size = 20
 const MenuItem = ({ icon, name, path }) => (
 	<div
 		key={name}
-		className='bg-emerald-50 group hover:bg-emerald-400 rounded-[24px] p-2'>
+		className='bg-emerald-50 group hover:bg-emerald-400 rounded-[18px] p-2'>
 		<a
 			href={path}
 			type='button'
@@ -79,25 +79,14 @@ const FloatMenu = () => {
 
 	return (
 		<>
-			<div className='  '>
-				<div className='fixed bottom-0 left-1/2 transform -translate-x-1/2 w-screen '>
-					{openMenu && (
-						<div className='flex  justify-center items-center gap-2 bg-white text-white p-2 rounded-[28px] shadow-lg border-2 border-emerald-300 mb-3 '>
-							<div className='  flex justify-center items-center flex-row   bg-red-400 overflow-x-scroll  rounded-[28px] '>
-								<MenuItem
-									key='Home'
-									name='Home'
-									path='/'
-									icon={
-										<House
-											size={size}
-											className={style}
-										/>
-									}
-								/>
-
-								<div className='h-10 w-[2px] bg-emerald-300 mx-auto my-2' />
-
+			<nav
+				class='~pb-6/10 pointer-events-none fixed bottom-2 left-0 z-10 w-full pt-12 '
+				id='nav'>
+				<div class='bg-mask-white dark:bg-mask-zinc-950 absolute bottom-0 left-0 right-0 h-[13rem] w-full ' />
+				<div class=' flex justify-center'>
+					<div class='max-w-full rounded-[1.375rem] bg-emerald-100/90 ring ring-emerald/[5%] backdrop-blur-xl backdrop-saturate-[140%] dark:border dark:border-white/[8%] dark:bg-emerald-950/90 dark:ring-0'>
+						<div class='scrollbar-none  pointer-events-auto overflow-x-auto scroll-smooth rounded-[inherit] p-1.5'>
+							<div class='isolate grid grid-cols-[repeat(4,5.6875em)] gap-2 '>
 								{navigation.map((item) => (
 									<MenuItem
 										path={item.path}
@@ -108,39 +97,10 @@ const FloatMenu = () => {
 								))}
 							</div>
 						</div>
-					)}
-
-					<div className='flex w-full justify-center'>
-						<button
-							onClick={handleMenu}
-							type='button'
-							className='bg-emerald-50 shadow-lg rounded-tl-[28px] rounded-tr-[28px] flex justify-center w-44 group hover:bg-emerald-400 border-2 border-emerald-300'>
-							<ChevronUp
-								className={`text-emerald-600 group-hover:text-white ${openMenu ? 'rotate-180' : 'animate-bounce'}`}
-							/>
-						</button>
 					</div>
 				</div>
+			</nav>
 
-				{isOpen && (
-					<div className='fixed bottom-28 left-1/2 -translate-x-1/2 bg-white border border-gray-300 rounded-lg shadow-xl p-2'>
-						{[
-							'Button',
-							'Alert Dialog',
-							'Notification',
-							'Modal',
-							'Wrapper Context'
-						].map((item) => (
-							<button
-								key={item}
-								type='button'
-								className='block w-full text-left text-emerald-500 hover:text-white hover:bg-emerald-500 p-2 rounded-lg'>
-								{item}
-							</button>
-						))}
-					</div>
-				)}
-			</div>
 			<Outlet />
 		</>
 	)
