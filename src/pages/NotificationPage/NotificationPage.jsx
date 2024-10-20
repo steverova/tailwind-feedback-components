@@ -59,7 +59,7 @@ const NotificationPage = () => {
 				<div className='static flex-1 overflow-y-auto'>
 
 					
-					<div className='sm:block md:hidden fixed top-15 left-0 w-full  py-2 backdrop-blur-lg text-end z-50'>
+					<div className='sm:block  lg:hidden fixed top-15 left-0 w-full  py-2 backdrop-blur-lg text-end z-50'>
 						<div className='flex flex-row justify-start items-end  ms-5 mt-1'>
 							<PopoverButton title='Navigation'>
 								<NavList sectionIds={sectionIds} />
