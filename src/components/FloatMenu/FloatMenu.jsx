@@ -58,7 +58,7 @@ const FloatMenu = () => {
 			)
 		},
 		{
-			name: 'Documentation',
+			name: 'Docs',
 			path: '/pages/notification#documentation',
 			icon: (
 				<BookOpen
@@ -80,13 +80,13 @@ const FloatMenu = () => {
 	return (
 		<>
 			<nav
-				class='~pb-6/10 pointer-events-none fixed bottom-2 left-0 z-10 w-full pt-12 mx-3'
+				class='~pb-6/10 pointer-events-none fixed bottom-2 left-0 z-10 w-full pt-12 mx-1'
 				id='nav'>
 				<div class='bg-mask-white dark:bg-mask-zinc-950 absolute bottom-0 left-0 right-0 h-[13rem] w-full ' />
 				<div class=' flex justify-center'>
 					<div class='max-w-full rounded-[1.375rem] bg-emerald-100/90 ring ring-emerald/[5%] backdrop-blur-xl backdrop-saturate-[140%] dark:border dark:border-white/[8%] dark:bg-emerald-950/90 dark:ring-0'>
 						<div class='scrollbar-none  pointer-events-auto overflow-x-auto scroll-smooth rounded-[inherit] p-1.5'>
-							<div class='isolate grid grid-cols-[repeat(4,5.6875em)] gap-2 '>
+							<div class='flex gap-3  '>
 								{navigation.map((item) => (
 									<MenuItem
 										path={item.path}
