@@ -5,7 +5,6 @@ import router from './routes/routes'
 import { NotificationProvider } from './components/Notification/NotificationProvider'
 import { AlertDialogProvider } from './components/AlertDialog/AlertDialogProvider'
 import { WrapperNotification } from './hooks/wrapperFactory'
-import FloatMenu from './components/FloatMenu/FloatMenu'
 
 function App() {
 
@@ -27,7 +26,6 @@ function App() {
 			<NotificationProvider setup={notificationsMethods}>
 				<AlertDialogProvider>
 					<RouterProvider router={router} />
-					{/* <FloatMenu/> */}
 				</AlertDialogProvider>
 			</NotificationProvider>
 		</WrapperNotification>

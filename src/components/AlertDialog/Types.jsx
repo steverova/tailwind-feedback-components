@@ -13,7 +13,7 @@ export const types = {
 		label: 'Info',
 		color: 'bg-blue-100',
 		accentColor: 'bg-blue-500',
-		hoverColor: 'hover:bg-blue-500',
+		hoverColor: 'hover:bg-blue-600',
 		border: 'border-blue-500',
 		text: 'text-blue-700',
 		icon: (
@@ -28,7 +28,7 @@ export const types = {
 		label: 'Ok',
 		color: 'bg-blue-100',
 		accentColor: 'bg-blue-500',
-		hoverColor: 'hover:bg-blue-500',
+		hoverColor: 'hover:bg-blue-600',
 		border: 'border-blue-500',
 		text: 'text-blue-700',
 		icon: (
@@ -45,7 +45,7 @@ export const types = {
 		accentColor: 'bg-emerald-500',
 		border: 'border-emerald-500',
 		text: 'text-emerald-700',
-		hoverColor: 'hover:bg-emerald-500',
+		hoverColor: 'hover:bg-emerald-600',
 		icon: (
 			<CircleCheckBigIcon
 				size={SIZE}
@@ -60,7 +60,7 @@ export const types = {
 		accentColor: 'bg-yellow-500',
 		border: 'border-yellow-500',
 		text: 'text-yellow-700',
-		hoverColor: 'hover:bg-yellow-500',
+		hoverColor: 'hover:bg-yellow-600',
 		icon: (
 			<ShieldAlertIcon
 				size={SIZE}
@@ -75,7 +75,7 @@ export const types = {
 		accentColor: 'bg-red-500',
 		border: 'border-red-500',
 		text: 'text-red-700',
-		hoverColor: 'hover:bg-red-500',
+		hoverColor: 'hover:bg-red-600',
 		icon: (
 			<OctagonAlertIcon
 				size={SIZE}

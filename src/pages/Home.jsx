@@ -20,7 +20,7 @@ const componentsData = [
     title: 'Alert/Dialog',
     description: 'Use dialog boxes to confirm user actions or display alerts.',
     route: 'pages/alert-dialog',
-    isEnabled: false, 
+    isEnabled: true, 
     buttonColor: 'bg-red-500 hover:bg-red-600',
   },
   {
