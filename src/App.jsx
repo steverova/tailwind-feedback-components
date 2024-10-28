@@ -7,22 +7,18 @@ import { AlertDialogProvider } from './components/AlertDialog/AlertDialogProvide
 import { WrapperNotification } from './hooks/wrapperFactory'
 
 function App() {
-
 	const [notificationsMethods, setNotificationsMethods] = useState({
 		maxNotifications: 10,
 		position: 'bottom-right',
 		animation: 'fadeScale'
 	})
 
-	const myMethods = {
-		notificationsMethods,
-		setNotificationsMethods,
-		suma: (a, b) => a + b
-	}
-
-
 	return (
-		<WrapperNotification value={myMethods}>
+		<WrapperNotification
+			value={{
+				notificationsMethods,
+				setNotificationsMethods
+			}}>
 			<NotificationProvider setup={notificationsMethods}>
 				<AlertDialogProvider>
 					<RouterProvider router={router} />

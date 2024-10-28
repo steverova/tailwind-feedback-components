@@ -3,6 +3,7 @@ import { Pointer, BookOpen, Wrench } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
 import { Home } from 'lucide-react'
+import Button from '../Button/Button'
 
 const style = 'text-slate-200 group-hover:text-white transition-colors duration-300' // Añadida transición
 const size = 20

@@ -22,7 +22,6 @@ export const AlertDialog = ({
 			role='alertdialog'
 			className='relative z-10'
 			aria-labelledby='modal-title'
-			aria-modal='true'
 			aria-hidden={!isOpen}>
 			{/* Background Overlay */}
 			<div

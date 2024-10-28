@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import AlertDialogPage from '../pages/AlertDialogPage'
 import ButtonPage from '../pages/ButtonPage'
 import DashboardPage from '../pages/DashboardPage'
-import Home from '../pages/Home'
+import Home from '../pages/Home/Home'
 import ModalPage from '../pages/ModalPage'
 import NotificationPage from '../pages/NotificationPage/NotificationPage'
 import WrapperContextPage from '../pages/WrapperContextPage'
@@ -13,7 +13,6 @@ const routes = [
 		path: '/',
 		element: <Home />
 	},
-
 	{
 		path: 'pages',
 		element: <FloatMenu />,
