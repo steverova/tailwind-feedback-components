@@ -29,6 +29,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-gist:
+        specifier: ^1.2.4
+        version: 1.2.4(react@18.3.1)
       react-markdown:
         specifier: ^9.0.1
         version: 9.0.1(@types/react@18.3.11)(react@18.3.1)
@@ -1286,6 +1289,11 @@ packages:
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
       react: ^18.3.1
+
+  react-gist@1.2.4:
+    resolution: {integrity: sha512-uDgPJ08IJsl/7auK3CS53JKGC1P/X7tNCzo9k0r6D/5l+ilsxE1+SAaylJCh0aeyZoJOoxQikKU+MHsAvA9iFw==}
+    peerDependencies:
+      react: 0.14.x || ^15.0.0-rc || ^16.0.0-rc || ^17.0.0-rc
 
   react-markdown@9.0.1:
     resolution: {integrity: sha512-186Gw/vF1uRkydbsOIkcGXw7aHq0sZOCRFFjGrr7b9+nVZg4UfA4enXCaxm4fUzecU38sWfrNDitGhshuU7rdg==}
@@ -2909,6 +2917,10 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
+
+  react-gist@1.2.4(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   react-markdown@9.0.1(@types/react@18.3.11)(react@18.3.1):
     dependencies:
