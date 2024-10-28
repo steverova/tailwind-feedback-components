@@ -4,8 +4,15 @@ import { types } from './Types'
 export const AlertDialog = ({
 	isOpen = false,
 	onClose = () => {},
-	options,
-	textOptions
+	options = {
+		confirmText: 'Confirm',
+		cancelText: 'Cancel',
+		type: 'info'
+	},
+	textOptions = {
+		confirmText: 'Confirm',
+		cancelText: 'Cancel'
+	}
 }) => {
 	const { title, message, type } = options
 	const { confirmText, cancelText } = textOptions

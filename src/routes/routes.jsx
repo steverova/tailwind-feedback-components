@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom'
-import AlertDialogPage from '../pages/AlertDialogPage'
+import AlertDialogPage from '../pages/AlertDialog/AlertDialogPage'
 import ButtonPage from '../pages/ButtonPage'
 import DashboardPage from '../pages/DashboardPage'
 import Home from '../pages/Home/Home'
