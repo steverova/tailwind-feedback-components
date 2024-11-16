@@ -15,8 +15,7 @@ const MenuItem = ({ icon, name, path, isActive, onClick }) => {
       className={`group hover:bg-emerald-800/90 rounded-[18px] p-2 min-w-16 transition-all duration-300 ${
         isActive ? 'bg-emerald-800/90' : ''
       }`}> {/* Transición agregada para cambiar de fondo */}
-      <a
-				href={path}
+      <button
         type='button'
         className='flex flex-col items-center group'
         onClick={onClick}>
@@ -27,7 +26,7 @@ const MenuItem = ({ icon, name, path, isActive, onClick }) => {
           }`}> {/* Transición añadida para el cambio de color del texto */}
           {name}
         </small>
-      </a>
+      </button>
     </div>
   )
 }

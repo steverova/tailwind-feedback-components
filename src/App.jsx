@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { RouterProvider } from 'react-router-dom'
 import router from './routes/routes'
 import { NotificationProvider } from './components/Notification/NotificationProvider'
-import { AlertDialogProvider } from './components/AlertDialog/AlertDialogProvider'
 import { WrapperNotification } from './hooks/wrapperFactory'
 
 function App() {
@@ -20,9 +19,7 @@ function App() {
 				setNotificationsMethods
 			}}>
 			<NotificationProvider setup={notificationsMethods}>
-				<AlertDialogProvider>
-					<RouterProvider router={router} />
-				</AlertDialogProvider>
+				<RouterProvider router={router} />
 			</NotificationProvider>
 		</WrapperNotification>
 	)

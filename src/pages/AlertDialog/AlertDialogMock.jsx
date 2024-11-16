@@ -8,6 +8,8 @@ const AlertDialogMock = ({
 	cancelText = 'Cancel',
 	modalRef
 }) => {
+	console.log(types[type].color)
+
 	return (
 		<div
 			style={{ backgroundClip: 'padding-box', overflow: 'hidden' }}
@@ -39,7 +41,7 @@ const AlertDialogMock = ({
 			</div>
 			{/* Modal Actions */}
 			<div className='px-4 pb-3 flex flex-row justify-end sm:px-4  w-full items-end gap-3'>
-				{type !== 'ok' && (
+				{!['ok', 'ok_neutral'].includes(type) && (
 					<button
 						type='button'
 						className={`mt-3  bg-white px-3 py-2 text-sm font-normal ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto ${types[type].text} rounded-[24px]`}>
