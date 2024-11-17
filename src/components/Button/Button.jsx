@@ -1,4 +1,4 @@
-import { LoaderIcon } from 'lucide-react'
+import { LoaderCircle } from 'lucide-react'
 
 /**
  * Button component for rendering a customizable button with support for icons, loading states, and different styles.
@@ -34,6 +34,7 @@ import { LoaderIcon } from 'lucide-react'
  *   Download
  * </Button>
  */
+
 const Button = ({
 	startIcon = null,
 	endIcon = null,
@@ -41,14 +42,16 @@ const Button = ({
 	color = 'info',
 	size = 'md',
 	elevation = 'none',
-	children = 'Button',
+	children = <span>Button</span>,
 	rounded = 'md',
 	onClick = () => {},
 	disabled = false,
 	loading = false,
-	loadingText = 'Cargando...',
+	loadingText = 'Loading...',
 	...rest
 }) => {
+	size = size === '' ? 'md' : size
+
 	const buttonStyles = {
 		color: {
 			info: ' hover:bg-blue-600',
@@ -73,6 +76,11 @@ const Button = ({
 			sm: 'shadow-sm',
 			md: 'shadow-md',
 			lg: 'shadow-lg'
+		},
+		textSize: {
+			sm: 'text-sm',
+			md: 'text-md',
+			lg: 'text-lg'
 		},
 		variant: {
 			filled: `text-white border-transparent 
@@ -135,15 +143,18 @@ const Button = ({
 			disabled={disabled || loading}>
 			<span className='flex flex-row items-center justify-center'>
 				{loading ? (
-					<>
-						<LoaderIcon
-							size={16}
-							className='animate-spin mr-1'
+					<div className='flex justify-center items-center'>
+						<LoaderCircle
+							size={size === 'sm' ? 12 : size === 'md' ? 16 : 24}
+							strokeWidth={3}
+							className='animate-spin mr-1 '
 						/>
-						<span>{loadingText}</span>
-					</>
+						<span className={`font-normal ${buttonStyles.textSize[size]}`}>
+							{loadingText}
+						</span>
+					</div>
 				) : (
-					<div className='text-center'>
+					<div className='text-center font-normal'>
 						{startIcon && <span className='mr-2'>{startIcon}</span>}
 						{children}
 						{endIcon && <span className='ml-2'>{endIcon}</span>}

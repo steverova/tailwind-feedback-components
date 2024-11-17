@@ -51,17 +51,19 @@ const AlertDialogPage = () => {
 						</div>
 
 						<div className='flex flex-wrap gap-3 justify-center'>
-							{['info', 'success', 'warning', 'danger', 'ok', 'neutral'].map((type) => (
-								<Button
-									onMouseEnter={() => handlerType(type)}
-									color={type}
-									key={type}
-									onClick={() => handleOpenDialog(type)}
-									rounded='full'
-									className='px-6 py-1'>
-									{type}
-								</Button>
-							))}
+							{['info', 'success', 'warning', 'danger', 'ok', 'neutral'].map(
+								(type) => (
+									<Button
+										onMouseEnter={() => handlerType(type)}
+										color={type}
+										key={type}
+										onClick={() => handleOpenDialog(type)}
+										rounded='full'
+										className='px-6 py-1'>
+										{type}
+									</Button>
+								)
+							)}
 						</div>
 					</div>
 
@@ -90,6 +92,8 @@ const AlertDialogPage = () => {
 						))}
 					</div>
 				</section>
+
+				<Button size='' rounded='full'></Button>
 
 				{/* <div className="container w-full mt-12">
 					<h2 className="text-2xl font-semibold mb-4">AlertDialogProvider.jsx</h2>

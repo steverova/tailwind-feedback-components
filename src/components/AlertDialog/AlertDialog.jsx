@@ -1,4 +1,3 @@
-import { useEffect, useState, useRef } from 'react'
 import { types } from './Types'
 import { useTransition, animated } from '@react-spring/web'
 
@@ -15,23 +14,12 @@ export const AlertDialog = ({
 		cancelText: 'Cancel'
 	}
 }) => {
-	const [showDialog, setShowDialog] = useState(isOpen)
-	const modalRef = useRef(null)
-
-	// Sincroniza el estado interno con isOpen
-	useEffect(() => {
-		if (isOpen) {
-			setShowDialog(true)
-		}
-	}, [isOpen])
-
-	// Configuración de las transiciones
 	const transitions = useTransition(true, {
 		from: { opacity: 0, transform: 'scale(0.8)' },
 		enter: { opacity: 1, transform: 'scale(1)' },
 		leave: { opacity: 0, transform: 'scale(0.8)' },
 		onRest: () => {
-			if (!showDialog) {
+			if (!isOpen) {
 				onClose(false)
 			}
 		}
@@ -44,18 +32,15 @@ export const AlertDialog = ({
 		throw new Error('Invalid type')
 	}
 
-	// Retorna null si el dialogo no debe mostrarse
-	if (!showDialog) return null
+	if (!isOpen) return null
 
 	return (
 		<div
-			role='alertdialog'
 			className='relative z-10'
-			aria-labelledby='modal-title'
 			aria-hidden={!isOpen}>
 			{/* Background Overlay */}
 			<div
-				className='fixed inset-0 bg-neutral-900 bg-opacity-90 transition-opacity'
+				className='fixed inset-0 bg-neutral-900/80 transition-opacity'
 				aria-hidden='true'
 			/>
 
@@ -66,10 +51,9 @@ export const AlertDialog = ({
 						item && (
 							<animated.div
 								style={style}
-								className='fixed inset-0 z-10 flex items-center justify-center mx-6 lg:mx-0'
-								tabIndex='-1'
-								ref={modalRef}>
-								<div className='relative transform overflow-hidden dark:bg-neutral-900 border-[0.1rem] border-neutral-700 bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-lg rounded-[24px]'>
+								className='fixed inset-0 z-10 flex items-center justify-center mx-6 lg:mx-0 '
+								tabIndex='-1'>
+								<div className='relative transform overflow-hidden dark:bg-neutral-900 border-[0.1rem] border-neutral-700 bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-lg rounded-[24px] '>
 									<div className='px-3 pb-4 pt-5 sm:p-6 sm:pb-4 w-full min-h-[110px]'>
 										<div className='sm:flex sm:items-start'>
 											<div
